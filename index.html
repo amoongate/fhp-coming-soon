@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Future Homeowner Plan — Coming Soon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0f1923; --navy-mid: #1a2535; --navy-light: #253045;
+    --teal: #2a9fd6; --teal-dark: #1d5f7a;
+    --gold: #d4a843; --gold-dark: #c4943a;
+    --green: #5cb87a; --text: #c8d8e8; --muted: #7a8fa6; --dim: #4a5a6a;
+    --si-top: env(safe-area-inset-top, 0px);
+    --si-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy); color: var(--text);
+    overflow-x: hidden; min-height: 100vh;
+  }
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: calc(14px + var(--si-top)) 20px 14px;
+    background: rgba(15,25,35,0.97);
+    border-bottom: 1px solid rgba(42,159,214,0.12);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-logo-icon {
+    width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+    display: flex; align-items: center; justify-content: center; font-size: 17px;
+  }
+  .nav-logo-text { font-size: 14px; font-weight: 600; color: #fff; line-height: 1.2; }
+  .nav-logo-sub { font-size: 10px; color: var(--teal); letter-spacing: 0.8px; text-transform: uppercase; }
+  .coming-badge {
+    background: rgba(212,168,67,0.15); border: 1px solid rgba(212,168,67,0.4);
+    border-radius: 20px; padding: 4px 12px;
+    color: var(--gold); font-size: 11px; font-weight: 600; white-space: nowrap; flex-shrink: 0;
+  }
+  .hero { padding: 48px 20px 36px; text-align: center; max-width: 640px; margin: 0 auto; }
+  .hero-eyebrow {
+    display: inline-block;
+    background: rgba(42,159,214,0.1); border: 1px solid rgba(42,159,214,0.3);
+    border-radius: 20px; padding: 4px 14px;
+    color: var(--teal); font-size: 11px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 7vw, 52px); font-weight: 900; line-height: 1.2;
+    color: #fff; margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p { font-size: clamp(15px, 3vw, 18px); color: var(--muted); line-height: 1.8; margin-bottom: 36px; }
+  .signup-box {
+    background: #1a2535; border: 1px solid #253045; border-radius: 20px;
+    padding: 28px 22px; max-width: 440px; margin: 0 auto 56px; text-align: center;
+  }
+  .signup-box h3 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .signup-box p { font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.6; }
+  .form-row { display: flex; flex-direction: column; gap: 10px; }
+  .form-input {
+    width: 100%; padding: 12px 14px;
+    background: #0f1923; border: 1.5px solid #2a4060; border-radius: 11px;
+    color: #d8eaf8; font-family: 'DM Sans', sans-serif; font-size: 15px;
+    outline: none; -webkit-appearance: none; transition: border-color 0.2s;
+  }
+  .form-input:focus { border-color: var(--teal); }
+  .form-input::placeholder { color: #3a5a6a; }
+  .btn-notify {
+    width: 100%; padding: 14px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    border: none; border-radius: 12px; color: #0f1923;
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700;
+    cursor: pointer; box-shadow: 0 4px 0 #9a6e28; -webkit-appearance: none; margin-top: 2px;
+  }
+  .btn-notify:active { transform: translateY(2px); box-shadow: 0 2px 0 #9a6e28; }
+  .success-msg {
+    display: none; background: rgba(92,184,122,0.12); border: 1px solid rgba(92,184,122,0.3);
+    border-radius: 10px; padding: 12px; color: var(--green); font-size: 14px; font-weight: 600; margin-top: 14px;
+  }
+  .form-disclaimer { font-size: 11px; color: var(--dim); margin-top: 12px; line-height: 1.6; }
+  .section { padding: 48px 20px; max-width: 860px; margin: 0 auto; }
+  .section-label { text-align: center; font-size: 11px; font-weight: 600; color: var(--teal); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(24px, 5vw, 38px); font-weight: 700; color: #fff; text-align: center; margin-bottom: 10px; }
+  .section-title span { color: var(--gold); }
+  .section-sub { text-align: center; color: var(--muted); font-size: clamp(14px, 2.5vw, 16px); line-height: 1.7; max-width: 520px; margin: 0 auto 36px; }
+  .phases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .phase-card { border-radius: 16px; padding: 20px 16px; border: 2px solid transparent; text-align: center; }
+  .phase-card.plan { background: rgba(42,159,214,0.08); border-color: rgba(42,159,214,0.2); }
+  .phase-card.find { background: rgba(212,168,67,0.08); border-color: rgba(212,168,67,0.2); }
+  .phase-card.own  { background: rgba(92,184,122,0.08); border-color: rgba(92,184,122,0.2); }
+  .phase-number { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .phase-card.plan .phase-number { color: var(--teal); }
+  .phase-card.find .phase-number { color: var(--gold); }
+  .phase-card.own  .phase-number { color: var(--green); }
+  .phase-name { font-size: clamp(16px, 3vw, 22px); font-weight: 800; color: #fff; margin-bottom: 8px; }
+  .phase-desc { font-size: clamp(12px, 2vw, 13px); color: var(--muted); line-height: 1.6; }
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .feature-card { background: #1a2535; border: 1px solid #253045; border-radius: 16px; padding: 22px 18px; }
+  .feature-icon { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 12px; }
+  .feature-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .feature-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+  .feature-tag { display: inline-block; margin-top: 10px; background: rgba(42,159,214,0.1); border: 1px solid rgba(42,159,214,0.25); border-radius: 20px; padding: 2px 10px; color: var(--teal); font-size: 11px; font-weight: 600; }
+  .ralph-section { padding: 48px 20px; max-width: 640px; margin: 0 auto; text-align: center; }
+  .ralph-avatar { width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg, var(--teal-dark), var(--teal)); display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 800; color: #fff; margin: 0 auto 16px; border: 3px solid rgba(42,159,214,0.4); overflow: hidden; }
+  .ralph-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ralph-name { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .ralph-title { font-size: 14px; color: var(--teal); margin-bottom: 3px; }
+  .ralph-brokerage { font-size: 12px; color: var(--muted); margin-bottom: 18px; }
+  .ralph-bio { font-size: 15px; color: var(--muted); line-height: 1.8; }
+  footer { border-top: 1px solid #1a2535; padding: calc(24px) 20px calc(24px + var(--si-bottom)); text-align: center; color: var(--dim); font-size: 12px; line-height: 1.8; }
+  footer a { color: var(--dim); text-decoration: none; }
+  .footer-disclaimer { font-size: 11px; color: #3a4a5a; max-width: 480px; margin: 10px auto 0; line-height: 1.7; }
+  @media (max-width: 600px) {
+    .phases-grid { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+    .hero { padding: 32px 16px 24px; }
+    .section { padding: 36px 16px; }
+    .signup-box { padding: 22px 16px; margin-bottom: 40px; }
+  }
+  @media (min-width: 601px) and (max-width: 860px) {
+    .phases-grid { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">🏠</div>
+    <div>
+      <div class="nav-logo-text">The Future Homeowner Plan</div>
+      <div class="nav-logo-sub">with Ralph Richardson</div>
+    </div>
+  </div>
+  <div class="coming-badge">✨ Coming Soon</div>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">🚀 Launching Soon</div>
+  <h1>Your roadmap to <span>owning your first home.</span></h1>
+  <p>A free, step-by-step app that guides first-time buyers from "I think I'm ready" to keys in hand — with a real coach by your side every step of the way.</p>
+  <div class="signup-box">
+    <h3>Be the first to know when we launch</h3>
+    <p>Sign up and we'll notify you the moment the app goes live. No spam — just one email when it's ready.</p>
+    <div class="form-row">
+      <input class="form-input" type="text" id="notify-name" placeholder="Your first name" autocomplete="given-name" />
+      <input class="form-input" type="email" id="notify-email" placeholder="Your email address" autocomplete="email" />
+      <button class="btn-notify" onclick="handleSignup()">🏠 Notify Me When It Launches</button>
+    </div>
+    <div class="success-msg" id="success-msg">✅ You're on the list! We'll email you the moment we launch.</div>
+    <p class="form-disclaimer">We'll only email you once, when the app launches. No spam, ever.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">The three-phase journey</div>
+  <div class="section-title">Plan It. Find It. <span>Own It.</span></div>
+  <div class="section-sub">Everything a first-time buyer needs, broken into three clear phases — each one unlocking when you're ready.</div>
+  <div class="phases-grid">
+    <div class="phase-card plan">
+      <div class="phase-number">Phase 1</div>
+      <div class="phase-name">PLAN IT.</div>
+      <div class="phase-desc">Build your personalized readiness plan. Get your Future Homeowner Score across 7 key areas — credit, budget, down payment, and more.</div>
+    </div>
+    <div class="phase-card find">
+      <div class="phase-number">Phase 2</div>
+      <div class="phase-name">FIND IT.</div>
+      <div class="phase-desc">Build your home wish list and learn how to search, make offers, and negotiate — with your coach unlocking each stage as you progress.</div>
+    </div>
+    <div class="phase-card own">
+      <div class="phase-number">Phase 3</div>
+      <div class="phase-name">OWN IT!</div>
+      <div class="phase-desc">Walk through escrow, inspections, and closing with confidence. Video guides cover every step to your keys.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">What's inside</div>
+  <div class="section-title">Everything in <span>one place.</span></div>
+  <div class="section-sub">Built specifically for first-time buyers — no jargon, no confusion, just a clear path forward.</div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon" style="background:rgba(42,159,214,0.15)">✨</div>
+      <div class="feature-title">Clarity AI Guide</div>
+      <div class="feature-desc">Ask anything about the home buying process, any time. Clear answers without the industry jargon.</div>
+      <span class="feature-tag">AI-powered</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:rgba(212,168,67,0.15)">📊</div>
+      <div class="feature-title">Future Homeowner Score</div>
+      <div class="feature-desc">Your personalized readiness score across 7 key areas — credit, budget, down payment, debt, and more.</div>
+      <span class="feature-tag">Personalized</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:rgba(92,184,122,0.15)">✅</div>
+      <div class="feature-title">Step-by-Step Checklist</div>
+      <div class="feature-desc">A custom action plan built from your answers. Each task links to resources so you always know what to do next.</div>
+      <span class="feature-tag">Action-oriented</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:rgba(123,104,238,0.15)">🧮</div>
+      <div class="feature-title">Built-in Calculators</div>
+      <div class="feature-desc">Mortgage payment, debt-to-income ratio, home price estimator — all pre-filled from your profile.</div>
+      <span class="feature-tag">Smart tools</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:rgba(232,119,74,0.15)">🏡</div>
+      <div class="feature-title">Home Wish List</div>
+      <div class="feature-desc">Tell us exactly what you're looking for. Ralph uses your wish list to match you with the right homes from day one.</div>
+      <span class="feature-tag">Find It phase</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:rgba(42,159,214,0.15)">👤</div>
+      <div class="feature-title">Direct Access to Ralph</div>
+      <div class="feature-desc">Message your coach right inside the app. Ralph reviews every profile and reaches out personally when you're ready.</div>
+      <span class="feature-tag">Real human coach</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:rgba(212,168,67,0.15)">🎬</div>
+      <div class="feature-title">Video Education Library</div>
+      <div class="feature-desc">Short, clear videos on every topic — escrow, inspections, offers, closing costs — organized by phase.</div>
+      <span class="feature-tag">Own It phase</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:rgba(92,184,122,0.15)">🏦</div>
+      <div class="feature-title">Lender Connection</div>
+      <div class="feature-desc">When you're ready, Ralph connects you with a trusted local lender. No cold calls, no pressure.</div>
+      <span class="feature-tag">When you're ready</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:rgba(212,168,67,0.15)">🔒</div>
+      <div class="feature-title">100% Free for Buyers</div>
+      <div class="feature-desc">The app is completely free for first-time buyers. No subscriptions, no hidden fees — ever.</div>
+      <span class="feature-tag">Always free</span>
+    </div>
+  </div>
+</div>
+
+<div class="ralph-section">
+  <div class="ralph-avatar">
+    <img src="https://media.licdn.com/dms/image/v2/D5603AQEM06h3L1qBNw/profile-displayphoto-scale_400_400/B56ZilrqA9HQAk-/0/1755126342175?e=1777507200&v=beta&t=r_zmnBxlH_p4kn7BWkjuOBIyqAyEhXuSKj1MNhNY3Yk" alt="Ralph Richardson" onerror="this.style.display='none'" />
+  </div>
+  <div class="ralph-name">Ralph Richardson</div>
+  <div class="ralph-title">Realtor & Home Buying Coach</div>
+  <div class="ralph-brokerage">Keller Williams Corona · DRE# 02054110</div>
+  <div class="ralph-bio">I've helped hundreds of first-time buyers in Southern California go from renting to owning. The Future Homeowner Plan app was built to give every buyer the same guidance I give my personal clients — organized, step-by-step, and always with a real coach by your side.</div>
+</div>
+
+<footer>
+  <div>© 2026 Ralph Richardson · The Future Homeowner Plan · Keller Williams Corona · DRE# 02054110</div>
+  <div style="margin-top:6px;"><a href="tel:9512917032">(951) 291-7032</a></div>
+  <div class="footer-disclaimer">The Future Homeowner Plan is an educational tool only. It does not constitute financial, legal, or mortgage advice. Consult a licensed lender, real estate professional, or financial advisor for guidance specific to your situation.</div>
+</footer>
+
+<script>
+// ── Supabase config ────────────────────────────────────────────────────────
+// Replace these with your actual values from supabase.com → Settings → API
+var SUPABASE_URL = 'https://frdbndqqwxmgtgdzxhby.supabase.co';
+var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyZGJuZHFxd3htZ3RnZHp4aGJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5NDA1ODYsImV4cCI6MjA5MTUxNjU4Nn0.3P0J_u8RBeX6XiCgaWQulhx3qhgLV7xdBIoRKmnXdao';
+
+async function handleSignup() {
+  var name = document.getElementById('notify-name').value.trim();
+  var email = document.getElementById('notify-email').value.trim();
+  var btn = document.querySelector('.btn-notify');
+
+  if (!name || !email || !email.includes('@')) {
+    alert('Please enter your name and a valid email address.');
+    return;
+  }
+
+  // Disable button and show loading
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+  btn.style.opacity = '0.7';
+
+  try {
+    var res = await fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_KEY,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({ name: name, email: email, source: 'coming-soon' })
+    });
+
+    if (res.ok || res.status === 201) {
+      // Success
+      document.getElementById('success-msg').style.display = 'block';
+      document.getElementById('notify-name').value = '';
+      document.getElementById('notify-email').value = '';
+      btn.textContent = '✅ You're on the list!';
+      btn.style.opacity = '0.5';
+      // Also save locally as backup
+      var signups = JSON.parse(localStorage.getItem('fhp_notify') || '[]');
+      signups.push({ name: name, email: email, date: new Date().toISOString() });
+      localStorage.setItem('fhp_notify', JSON.stringify(signups));
+    } else if (res.status === 409) {
+      // Already signed up (duplicate email)
+      document.getElementById('success-msg').innerHTML = '✅ You're already on the list — we'll email you when we launch!';
+      document.getElementById('success-msg').style.display = 'block';
+      btn.textContent = '✅ Already signed up';
+      btn.style.opacity = '0.5';
+    } else {
+      throw new Error('Server error: ' + res.status);
+    }
+  } catch (err) {
+    console.error('Signup error:', err);
+    // Fallback: save locally if Supabase fails
+    var signups = JSON.parse(localStorage.getItem('fhp_notify') || '[]');
+    signups.push({ name: name, email: email, date: new Date().toISOString() });
+    localStorage.setItem('fhp_notify', JSON.stringify(signups));
+    document.getElementById('success-msg').style.display = 'block';
+    btn.textContent = '✅ You're on the list!';
+    btn.style.opacity = '0.5';
+  }
+}
+</script>
+</body>
+</html>
