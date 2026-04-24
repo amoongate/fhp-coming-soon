@@ -1,0 +1,23 @@
+{
+  "name": "The Future Homeowner Plan",
+  "short_name": "FHP",
+  "description": "Your roadmap to owning your first home. A free, step-by-step app with a real coach by your side.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f1efea",
+  "theme_color": "#2f5f4f",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
