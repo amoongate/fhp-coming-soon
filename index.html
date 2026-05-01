@@ -3,34 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>The Future Homeowner Plan — Coming Soon</title>
-  <meta name="description" content="A free, step-by-step app that guides first-time buyers from 'I think I'm ready' to keys in hand, with a real coach by your side. Sign up to be notified when we launch." />
+  <title>The Future Homeowner Plan — Your roadmap to owning your first home</title>
+  <meta name="description" content="A free, step-by-step app that guides first-time buyers from 'I think I'm ready' to keys in hand, with a real coach by your side." />
   <meta name="theme-color" content="#f1efea" />
 
   <meta property="og:title" content="The Future Homeowner Plan" />
   <meta property="og:description" content="Your roadmap to owning your first home. A free, step-by-step app with a real coach by your side." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://thefuturehomeownerplan.com" />
-  <meta property="og:image" content="https://thefuturehomeownerplan.com/og-minimal-v2.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="The Future Homeowner Plan" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The Future Homeowner Plan" />
-  <meta name="twitter:description" content="Your roadmap to owning your first home. A free, step-by-step app with a real coach by your side." />
-  <meta name="twitter:image" content="https://thefuturehomeownerplan.com/og-minimal-v2.png" />
-
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -53,66 +37,107 @@
     }
 
     * { box-sizing: border-box; }
-
-    html, body {
-      margin: 0;
-      padding: 0;
+    html, body { margin: 0; padding: 0; }
+    body {
       background: var(--bg);
       color: var(--ink);
       font-family: var(--font-body);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
       min-height: 100vh;
       min-height: 100dvh;
     }
 
-    .wrap {
-      max-width: 560px;
+    /* Sticky topbar — absorbs the top safe area so content never hides under the notch/status bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(241, 239, 234, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding-top: env(safe-area-inset-top);
+    }
+    .topbar-inner {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 48px 20px 40px;
+      padding: 12px 24px;
+      padding-left: max(24px, env(safe-area-inset-left));
+      padding-right: max(24px, env(safe-area-inset-right));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .topbar-logo {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+    .topbar-logo svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .topbar-name {
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 1.1;
+    }
+    .topbar-sub {
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .topbar-signin {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cream);
+      text-decoration: none;
+      padding: 9px 18px;
+      border-radius: 999px;
+      background: var(--green);
+      white-space: nowrap;
+      transition: background 0.15s ease;
+    }
+    .topbar-signin:hover { background: #244a3e; }
+
+    .wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 40px 20px;
     }
 
-    .brand {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 36px;
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding-top: 8px;
+      padding-bottom: 12px;
     }
-    .brand-logo {
-      width: 68px;
-      height: 68px;
-      border-radius: 18px;
-      background: var(--green);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 34px;
-    }
-    .brand-eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.8px;
-      color: var(--gold);
-      text-transform: uppercase;
-    }
-    .brand-pill {
+    .hero-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 999px;
-      padding: 7px 16px;
+      padding: 6px 14px;
       font-size: 12px;
       font-weight: 600;
       color: var(--green);
+      margin-bottom: 22px;
     }
-    .brand-pill-dot {
+    .hero-pill-dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
@@ -123,106 +148,86 @@
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.55; transform: scale(1.18); }
     }
-
-    .hero {
-      text-align: center;
-      margin-bottom: 32px;
-    }
     .hero h1 {
       font-family: var(--font-serif);
-      font-size: clamp(34px, 7vw, 44px);
+      font-size: clamp(36px, 8vw, 54px);
       font-weight: 800;
-      line-height: 1.08;
-      letter-spacing: -0.8px;
-      margin: 0 0 16px;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin: 0 0 18px;
     }
+    .hero h1 .accent { color: var(--green); }
     .hero p {
-      font-size: 16px;
+      font-size: clamp(16px, 3vw, 18px);
       line-height: 1.6;
       color: var(--muted);
-      margin: 0;
+      margin: 0 auto 28px;
+      max-width: 520px;
     }
 
-    .signup-card {
-      background: var(--surface);
-      border-radius: 18px;
-      padding: 24px 22px;
-      margin-bottom: 36px;
-    }
-    .signup-title {
-      font-family: var(--font-serif);
-      font-size: 22px;
-      font-weight: 800;
-      margin: 0 0 4px;
-    }
-    .signup-sub {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.5;
-      margin: 0 0 16px;
-    }
-    .signup-form {
+    /* CTA block (reusable) */
+    .cta-block {
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 10px;
+      margin: 8px 0 0;
     }
-    .signup-input {
-      width: 100%;
-      padding: 14px 16px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      font-family: var(--font-body);
-      font-size: 15px;
-      background: #faf8f3;
-      color: var(--ink);
-      outline: none;
-      transition: border-color 0.15s ease, background 0.15s ease;
-    }
-    .signup-input:focus {
-      border-color: var(--green);
-      background: var(--surface);
-    }
-    .signup-input::placeholder {
-      color: var(--muted-light);
-    }
-    .signup-btn {
-      width: 100%;
-      padding: 15px;
+    .cta-primary {
+      display: inline-block;
+      padding: 16px 32px;
       background: var(--ink);
       color: #fff;
       border: none;
       border-radius: 12px;
       font-family: var(--font-body);
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 600;
+      text-decoration: none;
       cursor: pointer;
       transition: opacity 0.15s ease, transform 0.05s ease;
-      margin-top: 2px;
+      min-width: 240px;
+      text-align: center;
     }
-    .signup-btn:hover:not(:disabled) { opacity: 0.88; }
-    .signup-btn:active:not(:disabled) { transform: scale(0.985); }
-    .signup-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-    .signup-success {
-      background: var(--green-soft);
-      border: 1px solid var(--green);
-      border-radius: 12px;
-      padding: 14px 16px;
-      font-size: 14px;
-      color: var(--green);
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .signup-error {
-      color: #b91c1c;
+    .cta-primary:hover { opacity: 0.88; }
+    .cta-primary:active { transform: scale(0.985); }
+    .cta-secondary {
       font-size: 13px;
+      color: var(--muted);
+    }
+    .cta-secondary a {
+      color: var(--ink);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .cta-secondary a:hover { text-decoration: underline; }
+    .cta-note {
+      font-size: 12px;
+      color: var(--muted-light);
       margin-top: 2px;
     }
 
+    /* Trust strip */
+    .trust {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .trust-check { color: var(--green); font-weight: 700; }
+
+    /* Section heads */
     .section-head {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
     .section-eyebrow {
       font-size: 11px;
@@ -234,14 +239,23 @@
     }
     .section-title {
       font-family: var(--font-serif);
-      font-size: clamp(24px, 5.5vw, 30px);
+      font-size: clamp(26px, 6vw, 36px);
       font-weight: 800;
-      margin: 0;
-      letter-spacing: -0.4px;
+      margin: 0 0 10px;
+      letter-spacing: -0.6px;
+      line-height: 1.15;
+    }
+    .section-sub {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 480px;
+      margin: 0 auto;
     }
 
-    section { margin-bottom: 36px; }
+    section { margin-bottom: 48px; }
 
+    /* Phases */
     .phases {
       display: flex;
       flex-direction: column;
@@ -250,19 +264,19 @@
     .phase {
       background: var(--surface);
       border-radius: 16px;
-      padding: 18px 20px;
+      padding: 20px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 16px;
     }
     .phase-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
+      width: 52px;
+      height: 52px;
+      border-radius: 13px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      font-size: 26px;
       flex-shrink: 0;
     }
     .phase-icon.plan { background: var(--green-soft); }
@@ -273,50 +287,91 @@
       font-weight: 700;
       letter-spacing: 1px;
       color: var(--gold);
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
     .phase-name {
+      font-family: var(--font-serif);
       font-weight: 800;
-      font-size: 17px;
-      margin-bottom: 2px;
+      font-size: 20px;
+      margin-bottom: 4px;
     }
     .phase-desc {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--muted);
-      line-height: 1.45;
+      line-height: 1.5;
     }
 
+    /* Features */
     .features {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      gap: 12px;
     }
     .feature {
       background: var(--surface);
       border-radius: 14px;
-      padding: 16px;
+      padding: 18px;
     }
     .feature-icon {
-      font-size: 24px;
+      font-size: 26px;
       margin-bottom: 10px;
     }
     .feature-title {
       font-weight: 700;
       font-size: 14px;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
     .feature-desc {
       font-size: 12px;
       color: var(--muted);
-      line-height: 1.45;
+      line-height: 1.5;
     }
 
+    /* How it works */
+    .how {
+      background: var(--surface);
+      border-radius: 18px;
+      padding: 26px 22px;
+    }
+    .how-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .how-step:last-child { border-bottom: none; padding-bottom: 0; }
+    .how-step:first-child { padding-top: 0; }
+    .how-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      color: var(--gold);
+      font-weight: 800;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .how-step-title {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+    .how-step-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Ralph dark card */
     .ralph {
       background: var(--dark);
       border-radius: 18px;
-      padding: 24px 22px;
+      padding: 26px 22px;
       color: #fff;
-      margin-bottom: 36px;
     }
     .ralph-head {
       display: flex;
@@ -325,8 +380,8 @@
       margin-bottom: 14px;
     }
     .ralph-avatar {
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background: var(--gold);
       color: #fff;
@@ -357,13 +412,13 @@
       margin: 0;
     }
     .ralph-credits {
-      margin-top: 16px;
-      padding-top: 16px;
+      margin-top: 18px;
+      padding-top: 18px;
       border-top: 1px solid var(--dark-border);
     }
     .ralph-name {
       font-weight: 700;
-      font-size: 14px;
+      font-size: 15px;
       margin-bottom: 2px;
     }
     .ralph-meta {
@@ -376,86 +431,112 @@
       font-size: 13px;
       color: var(--gold);
       text-decoration: none;
-      margin-top: 8px;
+      margin-top: 10px;
       font-weight: 600;
     }
     .ralph-phone:hover { text-decoration: underline; }
 
+    /* Final CTA */
+    .final-cta {
+      background: var(--surface);
+      border-radius: 18px;
+      padding: 36px 22px;
+      text-align: center;
+    }
+    .final-cta h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 6vw, 36px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      margin: 0 0 12px;
+    }
+    .final-cta p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0 auto 24px;
+      max-width: 420px;
+    }
+
+    /* Footer */
     .footer {
       text-align: center;
-      font-size: 11px;
+      font-size: 12px;
       color: var(--muted-light);
-      line-height: 1.6;
-      padding-top: 20px;
+      line-height: 1.7;
+      padding: 32px 20px 16px;
+      padding-bottom: calc(16px + env(safe-area-inset-bottom));
       border-top: 1px solid var(--border);
+      margin-top: 20px;
     }
     .footer-tiny {
-      font-size: 10px;
-      margin-top: 6px;
+      font-size: 11px;
+      margin-top: 8px;
       color: var(--muted-light);
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     @media (max-width: 420px) {
-      .wrap { padding: 36px 16px 32px; }
-      .signup-card, .ralph { padding: 20px 18px; }
-      .features { gap: 8px; }
+      .wrap { padding: 32px 16px; }
+      .phase, .feature, .how, .ralph, .final-cta { padding: 20px 16px; }
+      .cta-primary { min-width: 0; width: 100%; padding: 15px 24px; }
+      .topbar-inner { padding: 10px 16px; }
     }
   </style>
 </head>
 <body>
-  <main class="wrap">
 
-    <div class="brand">
-      <div class="brand-logo">🏠</div>
-      <div class="brand-eyebrow">The Future Homeowner Plan</div>
-      <div class="brand-pill">
-        <span class="brand-pill-dot"></span>
-        Coming soon
-      </div>
-    </div>
-
-    <div class="hero">
-      <h1>Your roadmap to owning your first home.</h1>
-      <p>A free, step-by-step app that guides first-time buyers from "I think I'm ready" to keys in hand, with a real coach by your side.</p>
-    </div>
-
-    <div class="signup-card">
-      <div id="form-wrap">
-        <div class="signup-title">Be the first to know</div>
-        <div class="signup-sub">We'll email you the moment we launch. One email. No spam, ever.</div>
-        <form class="signup-form" id="signup-form" novalidate>
-          <input
-            type="text"
-            id="notify-name"
-            class="signup-input"
-            placeholder="Your name"
-            autocomplete="name"
-            required
-          />
-          <input
-            type="email"
-            id="notify-email"
-            class="signup-input"
-            placeholder="you@example.com"
-            autocomplete="email"
-            required
-          />
-          <button type="submit" class="signup-btn" id="submit-btn">Notify me when it launches →</button>
-          <div id="form-error" class="signup-error" style="display:none;"></div>
-        </form>
-      </div>
-      <div id="success-wrap" style="display:none;">
-        <div class="signup-success">
-          <span>✅</span>
-          <span id="success-text">You're on the list. We'll email you the moment we launch.</span>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="topbar-brand" href="/">
+        <div class="topbar-logo">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Future Homeowner Plan logo">
+            <rect width="64" height="64" rx="14" fill="#2f5f4f"/>
+            <path d="M14 30 L32 14 L50 30 L46 30 L46 48 L36 48 L36 38 L28 38 L28 48 L18 48 L18 30 Z" fill="#f1efea"/>
+            <rect x="30" y="30" width="4" height="6" fill="#c9a54a"/>
+          </svg>
         </div>
-      </div>
+        <div>
+          <div class="topbar-name">The Future Homeowner Plan</div>
+        </div>
+      </a>
+      <a class="topbar-signin" href="https://app.thefuturehomeownerplan.com/">Login / Sign up</a>
     </div>
+  </header>
 
+  <div class="wrap">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-pill">
+        <span class="hero-pill-dot"></span>
+        The app is live. Free for buyers.
+      </div>
+      <h1>Your roadmap to owning your <span class="accent">first home.</span></h1>
+      <p>A free, step-by-step app that guides first-time buyers from "I think I'm ready" to keys in hand, with a real coach by your side.</p>
+
+      <div class="cta-block">
+        <a class="cta-primary" href="https://app.thefuturehomeownerplan.com/">Start my plan →</a>
+        <div class="cta-secondary">Already have an account? <a href="https://app.thefuturehomeownerplan.com/">Sign in</a></div>
+        <div class="cta-note">Takes about 3 minutes · No credit card required</div>
+      </div>
+
+      <div class="trust">
+        <div class="trust-item"><span class="trust-check">✓</span> 100% free</div>
+        <div class="trust-item"><span class="trust-check">✓</span> No spam, ever</div>
+        <div class="trust-item"><span class="trust-check">✓</span> Real coach included</div>
+      </div>
+    </section>
+
+    <!-- PHASES -->
     <section>
       <div class="section-head">
         <div class="section-eyebrow">The three-phase journey</div>
         <h2 class="section-title">Plan It. Find It. Own It.</h2>
+        <p class="section-sub">Everything a first-time buyer needs, broken into three clear phases. Each one unlocks when you're ready.</p>
       </div>
       <div class="phases">
         <div class="phase">
@@ -463,7 +544,7 @@
           <div>
             <div class="phase-num">PHASE 1</div>
             <div class="phase-name">Plan It</div>
-            <div class="phase-desc">Get your readiness score across 7 key areas: credit, budget, down payment, and more.</div>
+            <div class="phase-desc">Build your personalized readiness plan. Get your Future Homeowner Score across 7 key areas: credit, budget, down payment, and more.</div>
           </div>
         </div>
         <div class="phase">
@@ -471,7 +552,7 @@
           <div>
             <div class="phase-num">PHASE 2</div>
             <div class="phase-name">Find It</div>
-            <div class="phase-desc">Build your wish list, make offers, negotiate, with your coach unlocking each stage.</div>
+            <div class="phase-desc">Build your home wish list and learn how to search, make offers, and negotiate, with your coach unlocking each stage as you progress.</div>
           </div>
         </div>
         <div class="phase">
@@ -479,16 +560,57 @@
           <div>
             <div class="phase-num">PHASE 3</div>
             <div class="phase-name">Own It</div>
-            <div class="phase-desc">Walk through escrow, inspections, and closing with video guides every step.</div>
+            <div class="phase-desc">Walk through escrow, inspections, and closing with confidence. Video guides cover every step to your keys.</div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- CTA #2 -->
+    <div class="cta-block">
+      <a class="cta-primary" href="https://app.thefuturehomeownerplan.com/">Start my plan →</a>
+      <div class="cta-secondary">Already have an account? <a href="https://app.thefuturehomeownerplan.com/">Sign in</a></div>
+    </div>
+
+    <div style="height: 48px;"></div>
+
+    <!-- HOW IT WORKS -->
+    <section>
+      <div class="section-head">
+        <div class="section-eyebrow">How it works</div>
+        <h2 class="section-title">Three simple steps.</h2>
+      </div>
+      <div class="how">
+        <div class="how-step">
+          <div class="how-num">1</div>
+          <div>
+            <div class="how-step-title">Answer 7 questions with Clarity</div>
+            <div class="how-step-desc">Our AI guide walks you through credit, income, savings, and more. No jargon. No judgment.</div>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">2</div>
+          <div>
+            <div class="how-step-title">Get your Future Homeowner Score</div>
+            <div class="how-step-desc">See exactly where you stand and what to work on next. Your personalized plan updates as you do.</div>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">3</div>
+          <div>
+            <div class="how-step-title">Connect with Ralph</div>
+            <div class="how-step-desc">Your coach reviews your plan and guides you, step by step, all the way to your keys.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
     <section>
       <div class="section-head">
         <div class="section-eyebrow">What's inside</div>
         <h2 class="section-title">Everything in one place.</h2>
+        <p class="section-sub">Built specifically for first-time buyers. No jargon, no confusion, just a clear path forward.</p>
       </div>
       <div class="features">
         <div class="feature">
@@ -524,104 +646,45 @@
       </div>
     </section>
 
-    <div class="ralph">
-      <div class="ralph-head">
-        <div class="ralph-avatar">
-          <img src="https://media.licdn.com/dms/image/v2/D5603AQEM06h3L1qBNw/profile-displayphoto-scale_400_400/B56ZilrqA9HQAk-/0/1755126342175?e=1777507200&v=beta&t=r_zmnBxlH_p4kn7BWkjuOBIyqAyEhXuSKj1MNhNY3Yk" alt="Ralph Richardson" onerror="this.style.display='none';this.parentElement.textContent='RR';" />
+    <!-- RALPH -->
+    <section>
+      <div class="ralph">
+        <div class="ralph-head">
+          <div class="ralph-avatar">
+            <img src="https://media.licdn.com/dms/image/v2/D5603AQEM06h3L1qBNw/profile-displayphoto-scale_400_400/B56ZilrqA9HQAk-/0/1755126342175?e=1777507200&v=beta&t=r_zmnBxlH_p4kn7BWkjuOBIyqAyEhXuSKj1MNhNY3Yk" alt="Ralph Richardson" onerror="this.style.display='none';this.parentElement.textContent='RR';" />
+          </div>
+          <div class="ralph-eyebrow">A note from Ralph</div>
         </div>
-        <div class="ralph-eyebrow">A note from Ralph</div>
+        <p class="ralph-quote">"I've helped many first-time buyers in Southern California go from renting to owning. I built this app to give every buyer the same guidance I give my personal clients: organized, step-by-step, and always with a real coach by your side."</p>
+        <div class="ralph-credits">
+          <div class="ralph-name">Ralph Richardson</div>
+          <div class="ralph-meta">Realtor & Home Buying Coach</div>
+          <div class="ralph-meta">Keller Williams Corona · DRE# 02054110</div>
+          <a href="tel:9096454394" class="ralph-phone">909.645.4394</a>
+        </div>
       </div>
-      <p class="ralph-quote">"I've helped many first-time buyers in Southern California go from renting to owning. I built this app to give every buyer the same guidance I give my personal clients: organized, step-by-step, and always with a real coach by your side."</p>
-      <div class="ralph-credits">
-        <div class="ralph-name">Ralph Richardson</div>
-        <div class="ralph-meta">Realtor & Home Buying Coach</div>
-        <div class="ralph-meta">Keller Williams Corona · DRE# 02054110</div>
-        <a href="tel:9096454394" class="ralph-phone">909.645.4394</a>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section>
+      <div class="final-cta">
+        <h2>Ready to start your plan?</h2>
+        <p>It takes about 3 minutes. You'll get your Future Homeowner Score at the end, plus a personalized checklist to start working on.</p>
+        <div class="cta-block">
+          <a class="cta-primary" href="https://app.thefuturehomeownerplan.com/">Start my plan →</a>
+          <div class="cta-secondary">Already have an account? <a href="https://app.thefuturehomeownerplan.com/">Sign in</a></div>
+          <div class="cta-note">100% free · No credit card required</div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="footer">
-      © 2026 Atlantic Moongate Inc. · Ralph Richardson<br />
-      Keller Williams Corona · DRE# 02054110
-      <div class="footer-tiny">The Future Homeowner Plan is an educational tool only, not financial, legal, or mortgage advice. Consult a licensed professional for guidance specific to your situation.</div>
-    </div>
+  </div>
 
-  </main>
-
-  <script>
-    var SUPABASE_URL = 'https://frdbndqqwxmgtgdzxhby.supabase.co';
-    var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyZGJuZHFxd3htZ3RnZHp4aGJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU5NDA1ODYsImV4cCI6MjA5MTUxNjU4Nn0.3P0J_u8RBeX6XiCgaWQulhx3qhgLV7xdBIoRKmnXdao';
-
-    var form = document.getElementById('signup-form');
-    var nameInput = document.getElementById('notify-name');
-    var emailInput = document.getElementById('notify-email');
-    var submitBtn = document.getElementById('submit-btn');
-    var errorEl = document.getElementById('form-error');
-    var formWrap = document.getElementById('form-wrap');
-    var successWrap = document.getElementById('success-wrap');
-    var successText = document.getElementById('success-text');
-
-    function isValidEmail(e) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
-    }
-
-    function showError(msg) {
-      errorEl.textContent = msg;
-      errorEl.style.display = 'block';
-    }
-    function hideError() {
-      errorEl.style.display = 'none';
-      errorEl.textContent = '';
-    }
-
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      hideError();
-      var name = nameInput.value.trim();
-      var email = emailInput.value.trim().toLowerCase();
-
-      if (!name) {
-        showError('Please enter your name.');
-        return;
-      }
-      if (!email || !isValidEmail(email)) {
-        showError('Please enter a valid email address.');
-        return;
-      }
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Saving...';
-
-      try {
-        var res = await fetch(SUPABASE_URL + '/rest/v1/waitlist', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            apikey: SUPABASE_KEY,
-            Authorization: 'Bearer ' + SUPABASE_KEY,
-            Prefer: 'return=minimal'
-          },
-          body: JSON.stringify({ name: name, email: email, source: 'coming-soon' })
-        });
-
-        if (res.ok || res.status === 201) {
-          formWrap.style.display = 'none';
-          successWrap.style.display = 'block';
-        } else if (res.status === 409) {
-          successText.textContent = "You're already on the list! We'll email you the moment we launch.";
-          formWrap.style.display = 'none';
-          successWrap.style.display = 'block';
-        } else {
-          throw new Error('Server returned ' + res.status);
-        }
-      } catch (err) {
-        console.error('Signup error:', err);
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Notify me when it launches →';
-        showError('Something went wrong. Please try again or email Ralph directly.');
-      }
-    });
-  </script>
+  <footer class="footer">
+    © 2026 Atlantic Moongate Inc. · Ralph Richardson<br />
+    Keller Williams Corona · DRE# 02054110
+    <div class="footer-tiny">The Future Homeowner Plan is an educational tool only, not financial, legal, or mortgage advice. Consult a licensed professional for guidance specific to your situation.</div>
+  </footer>
 
 </body>
 </html>
