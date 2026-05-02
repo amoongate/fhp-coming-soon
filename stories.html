@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Success Stories — The Future Homeowner Plan</title>
+  <meta name="description" content="Real first-time buyers who walked the Future Homeowner Plan and got the keys. Photo, video, and Google review stories from the past 8 years." />
+  <meta name="theme-color" content="#f1efea" />
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <meta property="og:title" content="Success Stories — The Future Homeowner Plan" />
+  <meta property="og:description" content="Real first-time buyers who walked the Future Homeowner Plan and got the keys. Photo, video, and Google review stories from the past 8 years." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thefuturehomeownerplan.com/stories" />
+  <meta property="og:site_name" content="The Future Homeowner Plan" />
+  <meta property="og:image" content="https://thefuturehomeownerplan.com/og-minimal-v2.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Success Stories — The Future Homeowner Plan" />
+  <meta name="twitter:description" content="Real first-time buyers who walked the Future Homeowner Plan and got the keys." />
+  <meta name="twitter:image" content="https://thefuturehomeownerplan.com/og-minimal-v2.png" />
+
+  <style>
+    :root {
+      --bg: #f1efea;
+      --cream: #f1efea;
+      --ink: #0f172a;
+      --green: #2f5f4f;
+      --gold: #c9a54a;
+      --dark: #1f2333;
+      --surface: #ffffff;
+      --border: rgba(15, 23, 42, 0.08);
+      --muted: rgba(15, 23, 42, 0.65);
+      --font-serif: "Fraunces", Georgia, "Liberation Serif", serif;
+      --font-body: "DM Sans", -apple-system, "Segoe UI", "DejaVu Sans", sans-serif;
+    }
+
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(241, 239, 234, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding-top: env(safe-area-inset-top);
+    }
+    .topbar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      padding-left: max(24px, env(safe-area-inset-left));
+      padding-right: max(24px, env(safe-area-inset-right));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .topbar-logo { width: 36px; height: 36px; flex-shrink: 0; }
+    .topbar-logo svg { width: 100%; height: 100%; display: block; }
+    .topbar-name {
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 1.1;
+    }
+    .topbar-signin {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cream);
+      text-decoration: none;
+      padding: 9px 18px;
+      border-radius: 999px;
+      background: var(--green);
+      white-space: nowrap;
+      transition: background 0.15s ease;
+    }
+    .topbar-signin:hover { background: #244a3e; }
+
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Hero */
+    .stories-hero {
+      text-align: center;
+      padding-bottom: 12px;
+    }
+    .stories-hero-eyebrow {
+      font-size: 11px;
+      color: var(--green);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .stories-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 7vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin: 0 0 14px;
+    }
+    .stories-hero h1 .accent { color: var(--gold); }
+    .stories-hero p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.55;
+      max-width: 460px;
+      margin: 0 auto;
+    }
+
+    /* Filter pills */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 24px 0 28px;
+    }
+    .filter-pill {
+      background: var(--surface);
+      color: var(--ink);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .filter-pill:hover { border-color: var(--green); }
+    .filter-pill.is-active {
+      background: var(--green);
+      color: var(--cream);
+      border-color: var(--green);
+    }
+
+    /* Story cards */
+    .story-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .story-card {
+      background: var(--surface);
+      border-radius: 14px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      min-height: 160px;
+      border: 1px solid var(--border);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .story-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+    .story-media {
+      background: #d4c5a8;
+      position: relative;
+      min-height: 160px;
+    }
+    .story-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .story-media-video {
+      background: #2a3340;
+      cursor: pointer;
+    }
+    .story-media-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .story-media-play svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--ink);
+      margin-left: 3px;
+    }
+    .story-media-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.65);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+    .story-content {
+      padding: 18px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .story-name {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 6px;
+      line-height: 1.2;
+    }
+    .story-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    .story-quote {
+      font-size: 14px;
+      color: rgba(15, 23, 42, 0.85);
+      line-height: 1.55;
+      margin: 0;
+    }
+    .story-quote.is-italic {
+      font-family: var(--font-serif);
+      font-style: italic;
+    }
+    .story-stars {
+      font-size: 13px;
+      color: var(--gold);
+      margin-top: 10px;
+      letter-spacing: 1px;
+    }
+    .story-source {
+      font-size: 11px;
+      color: rgba(15, 23, 42, 0.45);
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      .story-card { grid-template-columns: 1fr; }
+      .story-media { min-height: 220px; aspect-ratio: 16 / 9; }
+    }
+
+    /* Final CTA on stories page */
+    .stories-final-cta {
+      background: var(--surface);
+      border-radius: 18px;
+      padding: 36px 28px;
+      text-align: center;
+      margin-top: 36px;
+      border: 1px solid var(--border);
+    }
+    .stories-final-cta h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 5vw, 32px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      margin: 0 0 10px;
+    }
+    .stories-final-cta p {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0 0 20px;
+      line-height: 1.5;
+    }
+    .stories-final-cta a {
+      display: inline-block;
+      background: var(--green);
+      color: var(--cream);
+      padding: 13px 28px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+    .stories-final-cta a:hover { background: #244a3e; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: rgba(15, 23, 42, 0.5);
+      padding: 32px 20px 40px;
+      line-height: 1.6;
+    }
+    .footer-tiny {
+      font-size: 11px;
+      max-width: 540px;
+      margin: 14px auto 0;
+      color: rgba(15, 23, 42, 0.4);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 420px) {
+      .wrap { padding: 32px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="topbar-brand" href="/">
+        <div class="topbar-logo">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Future Homeowner Plan logo">
+            <rect width="64" height="64" rx="14" fill="#2f5f4f"/>
+            <path d="M14 30 L32 14 L50 30 L46 30 L46 48 L36 48 L36 38 L28 38 L28 48 L18 48 L18 30 Z" fill="#f1efea"/>
+            <rect x="30" y="30" width="4" height="6" fill="#c9a54a"/>
+          </svg>
+        </div>
+        <div>
+          <div class="topbar-name">The Future Homeowner Plan</div>
+        </div>
+      </a>
+      <a class="topbar-signin" href="https://app.thefuturehomeownerplan.com/">Login / Sign up</a>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <!-- HERO -->
+    <section class="stories-hero">
+      <div class="stories-hero-eyebrow">Success stories</div>
+      <h1>Real buyers. <span class="accent">Real keys.</span></h1>
+      <p>Eight years of first-time buyers who started exactly where you are.</p>
+    </section>
+
+    <!-- FILTER PILLS -->
+    <div class="filter-bar">
+      <a class="filter-pill is-active" href="#">All stories</a>
+      <a class="filter-pill" href="#">Videos</a>
+      <a class="filter-pill" href="#">Corona</a>
+      <a class="filter-pill" href="#">Murrieta</a>
+      <a class="filter-pill" href="#">Temecula</a>
+      <a class="filter-pill" href="#">Eastvale</a>
+    </div>
+
+    <!-- STORY CARDS -->
+    <!--
+      ──────────────────────────────────────────────────────────────────
+      EDITING GUIDE — to update a story below:
+      • Photo:    replace <div class="story-media"></div> background-image
+                  or add <img src="/stories/maria-tony.jpg" alt="">
+      • Video:    set data-youtube="VIDEO_ID" on the story-media-video div
+      • Quote:    edit the .story-quote text
+      • Source:   "Google review" or leave blank
+      ──────────────────────────────────────────────────────────────────
+    -->
+    <div class="story-list">
+
+      <!-- Story 1: Featured video -->
+      <article class="story-card" id="maria-tony">
+        <div class="story-media story-media-video" data-youtube="REPLACE_VIDEO_ID">
+          <span class="story-media-tag">VIDEO · 2:14</span>
+          <span class="story-media-play"><svg viewBox="0 0 12 12"><path d="M2 1l8 5-8 5z"/></svg></span>
+        </div>
+        <div class="story-content">
+          <h3 class="story-name">Maria & Tony's Corona keys moment</h3>
+          <div class="story-meta">Closed Sept 2024 · FHA · 3.5% down</div>
+          <p class="story-quote is-italic">"Ralph walked us through every number. We never felt rushed. The day we got the keys our daughter cried."</p>
+          <div class="story-stars">★★★★★</div>
+          <div class="story-source">Google review</div>
+        </div>
+      </article>
+
+      <!-- Story 2 -->
+      <article class="story-card" id="jasmine">
+        <div class="story-media" style="background:#d4c5a8;">
+          <!-- <img src="/stories/jasmine.jpg" alt="Jasmine on her porch" /> -->
+        </div>
+        <div class="story-content">
+          <h3 class="story-name">Jasmine R.</h3>
+          <div class="story-meta">Closed June 2023 · Eastvale · First-gen homeowner</div>
+          <p class="story-quote">"My parents rented their whole life. I thought owning wasn't for people like me. Ralph proved me wrong with math, not pressure."</p>
+          <div class="story-stars">★★★★★</div>
+          <div class="story-source">Google review</div>
+        </div>
+      </article>
+
+      <!-- Story 3 -->
+      <article class="story-card" id="nguyen">
+        <div class="story-media" style="background:#b8a890;"></div>
+        <div class="story-content">
+          <h3 class="story-name">The Nguyen family</h3>
+          <div class="story-meta">Closed March 2022 · Murrieta · Family of five</div>
+          <p class="story-quote">"We were renters with three kids and zero clue. Started Ralph's plan in January, in our own home by spring."</p>
+          <div class="story-stars">★★★★★</div>
+          <div class="story-source">Google review</div>
+        </div>
+      </article>
+
+      <!-- Story 4 -->
+      <article class="story-card" id="devin">
+        <div class="story-media" style="background:#c4a878;"></div>
+        <div class="story-content">
+          <h3 class="story-name">Devin K.</h3>
+          <div class="story-meta">Closed Nov 2023 · Corona · Self-employed</div>
+          <p class="story-quote">"Being 1099 made me think I'd never qualify. Ralph knew exactly which lender to introduce me to."</p>
+          <div class="story-stars">★★★★★</div>
+          <div class="story-source">Google review</div>
+        </div>
+      </article>
+
+      <!-- Story 5: Video -->
+      <article class="story-card" id="ashley">
+        <div class="story-media story-media-video" data-youtube="REPLACE_VIDEO_ID">
+          <span class="story-media-tag">VIDEO · 1:48</span>
+          <span class="story-media-play"><svg viewBox="0 0 12 12"><path d="M2 1l8 5-8 5z"/></svg></span>
+        </div>
+        <div class="story-content">
+          <h3 class="story-name">Ashley M. closes solo in Temecula</h3>
+          <div class="story-meta">Closed July 2024 · Conventional · 5% down</div>
+          <p class="story-quote is-italic">"I was buying alone and terrified. Ralph treated my $400k purchase like it was a million-dollar deal."</p>
+          <div class="story-stars">★★★★★</div>
+          <div class="story-source">Google review</div>
+        </div>
+      </article>
+
+      <!-- Story 6 -->
+      <article class="story-card" id="carlos-bri">
+        <div class="story-media" style="background:#a89b80;"></div>
+        <div class="story-content">
+          <h3 class="story-name">Carlos & Bri</h3>
+          <div class="story-meta">Closed Feb 2025 · Menifee · Newlyweds</div>
+          <p class="story-quote">"We argued about money before we found Ralph. He got us on the same page in one session."</p>
+          <div class="story-stars">★★★★★</div>
+          <div class="story-source">Google review</div>
+        </div>
+      </article>
+
+      <!-- Story 7 -->
+      <article class="story-card" id="reyna">
+        <div class="story-media" style="background:#bcaa8a;"></div>
+        <div class="story-content">
+          <h3 class="story-name">Reyna G.</h3>
+          <div class="story-meta">Closed Aug 2021 · Moreno Valley · Single mom of two</div>
+          <p class="story-quote">"I'd given up on owning. Ralph said 'let's just look at the numbers' and three months later I had keys."</p>
+          <div class="story-stars">★★★★★</div>
+          <div class="story-source">Google review</div>
+        </div>
+      </article>
+
+      <!-- Story 8 -->
+      <article class="story-card" id="thompson">
+        <div class="story-media" style="background:#cab48f;"></div>
+        <div class="story-content">
+          <h3 class="story-name">The Thompsons</h3>
+          <div class="story-meta">Closed May 2020 · Corona · Veterans (VA loan)</div>
+          <p class="story-quote">"Used my VA benefit thanks to Ralph showing me how. Zero down, low rate, dream home."</p>
+          <div class="story-stars">★★★★★</div>
+          <div class="story-source">Google review</div>
+        </div>
+      </article>
+
+      <!-- Story 9 -->
+      <article class="story-card" id="priya">
+        <div class="story-media" style="background:#a8987a;"></div>
+        <div class="story-content">
+          <h3 class="story-name">Priya & Sam</h3>
+          <div class="story-meta">Closed Oct 2024 · Eastvale · Co-buyers (siblings)</div>
+          <p class="story-quote">"My brother and I bought together. Ralph handled the unusual structure like he'd done it a hundred times."</p>
+          <div class="story-stars">★★★★★</div>
+          <div class="story-source">Google review</div>
+        </div>
+      </article>
+
+      <!-- Story 10 -->
+      <article class="story-card" id="dee">
+        <div class="story-media" style="background:#b8a060;"></div>
+        <div class="story-content">
+          <h3 class="story-name">Dee W.</h3>
+          <div class="story-meta">Closed Jan 2019 · Corona · One of Ralph's earliest plan grads</div>
+          <p class="story-quote">"Six years in this home now. The plan worked. Ralph didn't just sell me a house, he taught me how it all works."</p>
+          <div class="story-stars">★★★★★</div>
+          <div class="story-source">Google review</div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- FINAL CTA -->
+    <section class="stories-final-cta">
+      <h2>Your story could be next.</h2>
+      <p>Start your free plan today. Three minutes to see where you stand.</p>
+      <a href="https://app.thefuturehomeownerplan.com/">Start my plan →</a>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    © 2026 Atlantic Moongate Inc. · Ralph Richardson<br />
+    Keller Williams Corona · DRE# 02054110
+    <div class="footer-tiny">The Future Homeowner Plan is an educational tool only, not financial, legal, or mortgage advice. Consult a licensed professional for guidance specific to your situation.</div>
+  </footer>
+
+</body>
+</html>
