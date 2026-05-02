@@ -108,6 +108,101 @@
     }
     .topbar-signin:hover { background: #244a3e; }
 
+    /* Nav links — desktop only */
+    .topbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .topbar-link {
+      font-size: 13px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+    .topbar-link:hover { color: var(--green); }
+    .topbar-link.is-active { color: var(--green); }
+
+    /* Hamburger button — mobile only */
+    .topbar-hamburger {
+      display: none;
+      background: transparent;
+      border: 0;
+      padding: 10px;
+      margin: -10px;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 4px;
+      align-items: center;
+      justify-content: center;
+    }
+    .topbar-hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 1px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .topbar-hamburger.is-open span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+    .topbar-hamburger.is-open span:nth-child(2) {
+      opacity: 0;
+    }
+    .topbar-hamburger.is-open span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* Mobile slide-down panel */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--cream);
+      z-index: 49;
+      padding: 70px 20px 24px;
+      padding-top: calc(70px + env(safe-area-inset-top));
+      border-bottom: 1px solid var(--border);
+      transform: translateY(-100%);
+      transition: transform 0.25s ease;
+    }
+    .mobile-menu.is-open {
+      display: block;
+      transform: translateY(0);
+    }
+    .mobile-menu-link {
+      display: block;
+      padding: 16px 4px;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .mobile-menu-link:hover { color: var(--green); }
+    .mobile-menu-cta {
+      display: block;
+      margin-top: 18px;
+      background: var(--green);
+      color: var(--cream);
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .topbar-nav { display: none; }
+      .topbar-signin { display: none; }
+      .topbar-hamburger { display: flex; }
+    }
+
     .wrap {
       max-width: 760px;
       margin: 0 auto;
@@ -455,9 +550,48 @@
           <div class="topbar-name">The Future Homeowner Plan</div>
         </div>
       </a>
-      <a class="topbar-signin" href="https://app.thefuturehomeownerplan.com/">Login / Sign up</a>
+      <nav class="topbar-nav" aria-label="Main">
+        <a class="topbar-link is-active" href="/stories.html">Stories</a>
+        <a class="topbar-signin" href="https://app.thefuturehomeownerplan.com/">Login / Sign up</a>
+      </nav>
+      <button class="topbar-hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
+
+  <!-- Mobile slide-down menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a class="mobile-menu-link" href="/stories.html">Stories</a>
+    <a class="mobile-menu-cta" href="https://app.thefuturehomeownerplan.com/">Login / Sign up</a>
+  </div>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('hamburgerBtn');
+      var menu = document.getElementById('mobileMenu');
+      if (!btn || !menu) return;
+      function toggle() {
+        var open = menu.classList.toggle('is-open');
+        btn.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', String(open));
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        menu.setAttribute('aria-hidden', String(!open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+      btn.addEventListener('click', toggle);
+      // Close menu when a link inside it is tapped
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { if (menu.classList.contains('is-open')) toggle(); });
+      });
+      // Close on Escape
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && menu.classList.contains('is-open')) toggle();
+      });
+    })();
+  </script>
 
   <div class="wrap">
 
