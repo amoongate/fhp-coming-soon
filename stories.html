@@ -296,39 +296,82 @@
       font-weight: 500;
     }
 
-    /* Video story card — same shell, iframe instead of avatar */
-    .story-video-card {
-      grid-template-columns: 320px 1fr;
+    /* Video story grid — 2-column tiles */
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 32px 0 14px;
     }
-    .story-video-frame {
+    .video-tile {
+      background: var(--surface);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .video-tile:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+    .video-tile-frame {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
       background: #000;
       overflow: hidden;
     }
-    .story-video-frame iframe {
+    .video-tile-frame iframe {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       border: 0;
     }
-    .story-video-tag {
-      display: inline-block;
-      background: rgba(47, 95, 79, 0.1);
-      color: var(--green);
-      font-size: 10px;
+    .video-tile-body {
+      padding: 14px 18px 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .video-tile-name {
+      font-family: var(--font-serif);
+      font-size: 17px;
       font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 4px;
-      letter-spacing: 0.08em;
-      margin-bottom: 8px;
-      text-transform: uppercase;
+      color: var(--ink);
+      margin: 0 0 4px;
+      line-height: 1.2;
+    }
+    .video-tile-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    .video-tile-quote {
+      font-size: 13px;
+      color: rgba(15, 23, 42, 0.85);
+      line-height: 1.5;
+      margin: 0;
+      flex: 1;
+    }
+    .video-tile-stars {
+      font-size: 12px;
+      color: var(--gold);
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+    .video-tile-source {
+      font-size: 10px;
+      color: rgba(15, 23, 42, 0.45);
+      margin-top: 3px;
+      font-weight: 500;
     }
 
-    @media (max-width: 700px) {
-      .story-video-card { grid-template-columns: 1fr; }
+    @media (max-width: 600px) {
+      .video-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 600px) {
@@ -425,66 +468,148 @@
       <p>Eight years of first-time buyers who started exactly where you are.</p>
     </section>
 
-    <!-- FEATURED VIDEO STORY 1: Praise (FHP grad) -->
-    <article class="story-card story-video-card">
-      <div class="story-video-frame">
-        <iframe
-          src="https://www.youtube.com/embed/fUVcbDkDYqE"
-          title="Praise — Future Homeowner Plan grad"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      </div>
-      <div class="story-content">
-        <span class="story-video-tag">Video story</span>
-        <h3 class="story-name">Praise</h3>
-        <div class="story-meta">Closed June 2022 · Future Homeowner Plan grad</div>
-        <p class="story-quote">"I'm currently in the Future Homeowner Program and Mr. Richardson has been amazing. I have tried several times over the years to buy a home but have not succeeded. Update: We closed on our new home on 6/6/2022. The Future Homeowner Program really works."</p>
-        <div class="story-stars">★★★★★</div>
-        <div class="story-source">Google review</div>
-      </div>
-    </article>
+    <!-- VIDEO STORIES — 2-column grid -->
+    <div class="video-grid">
 
-    <!-- FEATURED VIDEO STORY 2: Etta (A new legacy) -->
-    <article class="story-card story-video-card">
-      <div class="story-video-frame">
-        <iframe
-          src="https://www.youtube.com/embed/pguZ2kZ1sio"
-          title="Etta — A new legacy for this family"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      </div>
-      <div class="story-content">
-        <span class="story-video-tag">Video story</span>
-        <h3 class="story-name">Etta</h3>
-        <div class="story-meta">Closed 2022 · Building generational wealth</div>
-        <p class="story-quote">"We embarked on a faith walk with Ralph and we were greatly rewarded. He is masterful at negotiating an affordable price in a housing market that will go down in history. Because of Ralph, we will leave a history of homeownership for our son."</p>
-        <div class="story-stars">★★★★★</div>
-        <div class="story-source">Google review</div>
-      </div>
-    </article>
+      <!-- Praise — FHP grad -->
+      <article class="video-tile">
+        <div class="video-tile-frame">
+          <iframe
+            src="https://www.youtube.com/embed/fUVcbDkDYqE"
+            title="Praise — Future Homeowner Plan grad"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="video-tile-body">
+          <h3 class="video-tile-name">Praise</h3>
+          <div class="video-tile-meta">Closed June 2022 · Future Homeowner Plan grad</div>
+          <p class="video-tile-quote">"I have tried several times over the years to buy a home but have not succeeded. The Future Homeowner Program really works."</p>
+          <div class="video-tile-stars">★★★★★</div>
+          <div class="video-tile-source">Google review</div>
+        </div>
+      </article>
 
-    <!-- FEATURED VIDEO STORY 3: Glenn -->
-    <article class="story-card story-video-card">
-      <div class="story-video-frame">
-        <iframe
-          src="https://www.youtube.com/embed/t7j_cTcwFhk"
-          title="Glenn gets the keys to his new home"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      </div>
-      <div class="story-content">
-        <span class="story-video-tag">Video story</span>
-        <h3 class="story-name">Glenn</h3>
-        <div class="story-meta">Keys day · His own home</div>
-        <p class="story-quote">Watch Glenn get excited about getting the keys to his new home — one of the moments that makes this work worth doing.</p>
-      </div>
-    </article>
+      <!-- Etta — A new legacy -->
+      <article class="video-tile">
+        <div class="video-tile-frame">
+          <iframe
+            src="https://www.youtube.com/embed/pguZ2kZ1sio"
+            title="Etta — A new legacy for this family"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="video-tile-body">
+          <h3 class="video-tile-name">Etta</h3>
+          <div class="video-tile-meta">Closed 2022 · Building generational wealth</div>
+          <p class="video-tile-quote">"Because of Ralph, we will leave a history of homeownership for our son."</p>
+          <div class="video-tile-stars">★★★★★</div>
+          <div class="video-tile-source">Google review</div>
+        </div>
+      </article>
+
+      <!-- Robert & Courtney -->
+      <article class="video-tile">
+        <div class="video-tile-frame">
+          <iframe
+            src="https://www.youtube.com/embed/j9EAPsjWPnU"
+            title="Robert & Courtney get their keys"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="video-tile-body">
+          <h3 class="video-tile-name">Robert & Courtney</h3>
+          <div class="video-tile-meta">Closed 2022</div>
+          <p class="video-tile-quote">"Ralph was a complete godsend and made buying our home as easily as it possibly could have been."</p>
+          <div class="video-tile-stars">★★★★★</div>
+          <div class="video-tile-source">Google review</div>
+        </div>
+      </article>
+
+      <!-- Danielle -->
+      <article class="video-tile">
+        <div class="video-tile-frame">
+          <iframe
+            src="https://www.youtube.com/embed/gj2gtKtMcVs"
+            title="Danielle — first-time buyer"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="video-tile-body">
+          <h3 class="video-tile-name">Danielle</h3>
+          <div class="video-tile-meta">Closed 2021 · First-time buyer</div>
+          <p class="video-tile-quote">"THE BEST OF THE BEST! I was a first-time home buyer that knew absolutely nothing. Ralph educated me in ways that was easy for me to understand."</p>
+          <div class="video-tile-stars">★★★★★</div>
+          <div class="video-tile-source">Google review</div>
+        </div>
+      </article>
+
+      <!-- Joseph -->
+      <article class="video-tile">
+        <div class="video-tile-frame">
+          <iframe
+            src="https://www.youtube.com/embed/L-cAFtcI70U"
+            title="Joseph — found his dream neighborhood"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="video-tile-body">
+          <h3 class="video-tile-name">Joseph</h3>
+          <div class="video-tile-meta">Closed 2022 · Found his dream neighborhood</div>
+          <p class="video-tile-quote">"Ralph did a tremendous job finding a beautiful home in my dream neighborhood and assisted my family with every detail."</p>
+          <div class="video-tile-stars">★★★★★</div>
+          <div class="video-tile-source">Google review</div>
+        </div>
+      </article>
+
+      <!-- Manny -->
+      <article class="video-tile">
+        <div class="video-tile-frame">
+          <iframe
+            src="https://www.youtube.com/embed/IbGxK98zVlc"
+            title="Manny — bought under appraised value"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="video-tile-body">
+          <h3 class="video-tile-name">Manny</h3>
+          <div class="video-tile-meta">Closed 2022 · Bought under appraised value</div>
+          <p class="video-tile-quote">"We never once felt pressured. We actually ended up purchasing our home under appraised value, which is pretty insane given this market!"</p>
+          <div class="video-tile-stars">★★★★★</div>
+          <div class="video-tile-source">Google review</div>
+        </div>
+      </article>
+
+      <!-- Glenn -->
+      <article class="video-tile">
+        <div class="video-tile-frame">
+          <iframe
+            src="https://www.youtube.com/embed/t7j_cTcwFhk"
+            title="Glenn gets the keys to his new home"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="video-tile-body">
+          <h3 class="video-tile-name">Glenn</h3>
+          <div class="video-tile-meta">Keys day · His own home</div>
+          <p class="video-tile-quote">Watch Glenn's excitement getting the keys to his new home.</p>
+        </div>
+      </article>
+
+    </div>
 
     <!-- FEATURED PULL QUOTE: Silver & Noemi -->
     <article class="featured-quote">
@@ -533,50 +658,6 @@
           <h3 class="story-name">Anne</h3>
           <div class="story-meta">Closed 2025 · First-time buyer</div>
           <p class="story-quote">"He is the most professional, patient, and kind realtor. He made my journey really smooth and stress-free. His perfect listening skills made it easier for me to express my fears as a first-time home buyer."</p>
-          <div class="story-stars">★★★★★</div>
-          <div class="story-source">Google review</div>
-        </div>
-      </article>
-
-      <article class="story-card">
-        <div class="story-avatar is-gold"><div class="story-avatar-circle">R</div></div>
-        <div class="story-content">
-          <h3 class="story-name">Robert & Courtney</h3>
-          <div class="story-meta">Closed 2022</div>
-          <p class="story-quote">"Ralph was a complete godsend and made buying our home as easily as it possibly could have been. If we had any questions he was always there with answers — very reliable, easy to get a hold of."</p>
-          <div class="story-stars">★★★★★</div>
-          <div class="story-source">Google review</div>
-        </div>
-      </article>
-
-      <article class="story-card">
-        <div class="story-avatar is-dark"><div class="story-avatar-circle">J</div></div>
-        <div class="story-content">
-          <h3 class="story-name">Joseph</h3>
-          <div class="story-meta">Closed 2022 · Found his dream neighborhood</div>
-          <p class="story-quote">"Ralph displays absolute professionalism, genuine integrity, and a great sense of humor. Especially given the challenging market, Ralph did a tremendous job finding a beautiful home in my dream neighborhood."</p>
-          <div class="story-stars">★★★★★</div>
-          <div class="story-source">Google review</div>
-        </div>
-      </article>
-
-      <article class="story-card">
-        <div class="story-avatar is-gold"><div class="story-avatar-circle">M</div></div>
-        <div class="story-content">
-          <h3 class="story-name">Manny</h3>
-          <div class="story-meta">Closed 2022 · Bought under appraised value</div>
-          <p class="story-quote">"We never once felt pressured to make a purchase and Ralph did everything he could to get us into a home we love at the best possible price. We actually ended up purchasing our home under appraised value, which is pretty insane given this market!"</p>
-          <div class="story-stars">★★★★★</div>
-          <div class="story-source">Google review</div>
-        </div>
-      </article>
-
-      <article class="story-card">
-        <div class="story-avatar"><div class="story-avatar-circle">D</div></div>
-        <div class="story-content">
-          <h3 class="story-name">Danielle</h3>
-          <div class="story-meta">Closed 2021 · First-time buyer</div>
-          <p class="story-quote">"THE BEST OF THE BEST! I was a first-time home buyer that knew absolutely nothing. Ralph was able to educate me in ways that was easy for me to understand. He made sure that I knew what was happening all the way to the end of the process."</p>
           <div class="story-stars">★★★★★</div>
           <div class="story-source">Google review</div>
         </div>
