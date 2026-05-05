@@ -8,7 +8,11 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-HH4PWH608B');
+  gtag('config', 'G-HH4PWH608B', {
+    'linker': {
+      'domains': ['thefuturehomeownerplan.com', 'app.thefuturehomeownerplan.com']
+    }
+  });
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -561,7 +565,7 @@
       </a>
       <nav class="topbar-nav" aria-label="Main">
         <a class="topbar-link is-active" href="/stories.html">Stories</a>
-        <a class="topbar-signin" href="https://app.thefuturehomeownerplan.com/">Login / Sign up</a>
+        <a class="topbar-signin" href="https://app.thefuturehomeownerplan.com/" data-track="login_signup" data-location="topbar">Login / Sign up</a>
       </nav>
       <button class="topbar-hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span>
@@ -574,7 +578,7 @@
   <!-- Mobile slide-down menu -->
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <a class="mobile-menu-link" href="/stories.html">Stories</a>
-    <a class="mobile-menu-cta" href="https://app.thefuturehomeownerplan.com/">Login / Sign up</a>
+    <a class="mobile-menu-cta" href="https://app.thefuturehomeownerplan.com/" data-track="login_signup" data-location="mobile_menu">Login / Sign up</a>
   </div>
 
   <script>
@@ -812,7 +816,7 @@
     <section class="stories-final-cta">
       <h2>Your story could be next.</h2>
       <p>Start your free plan today. Three minutes to see where you stand.</p>
-      <a href="https://app.thefuturehomeownerplan.com/">Start my plan →</a>
+      <a href="https://app.thefuturehomeownerplan.com/" data-track="start_my_plan" data-location="final_cta">Start my plan →</a>
     </section>
 
   </div>
@@ -823,5 +827,39 @@
     <div class="footer-tiny">The Future Homeowner Plan is an educational tool only, not financial, legal, or mortgage advice. Consult a licensed professional for guidance specific to your situation.</div>
   </footer>
 
+  <!-- GA event tracking + UTM tagging for app links -->
+  <script>
+    (function () {
+      document.addEventListener('click', function (e) {
+        var link = e.target.closest('a[data-track]');
+        if (!link) return;
+
+        var eventName = link.getAttribute('data-track');
+        var location = link.getAttribute('data-location') || 'unknown';
+        var page = (window.location.pathname.split('/').pop() || 'index').replace('.html', '') || 'index';
+
+        // Append UTM params so the app's GA can attribute the source
+        try {
+          var url = new URL(link.href);
+          if (url.hostname.indexOf('app.thefuturehomeownerplan.com') !== -1) {
+            url.searchParams.set('utm_source', 'marketing_site');
+            url.searchParams.set('utm_medium', 'cta_button');
+            url.searchParams.set('utm_campaign', eventName);
+            url.searchParams.set('utm_content', page + '_' + location);
+            link.href = url.toString();
+          }
+        } catch (err) { /* ignore */ }
+
+        // Fire GA event
+        if (typeof gtag === 'function') {
+          gtag('event', eventName, {
+            'location': location,
+            'page': page,
+            'link_url': link.href
+          });
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

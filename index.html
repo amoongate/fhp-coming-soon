@@ -8,7 +8,11 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-HH4PWH608B');
+  gtag('config', 'G-HH4PWH608B', {
+    'linker': {
+      'domains': ['thefuturehomeownerplan.com', 'app.thefuturehomeownerplan.com']
+    }
+  });
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -714,7 +718,7 @@
       </a>
       <nav class="topbar-nav" aria-label="Main">
         <a class="topbar-link " href="/stories.html">Stories</a>
-        <a class="topbar-signin" href="https://app.thefuturehomeownerplan.com/">Login / Sign up</a>
+        <a class="topbar-signin" href="https://app.thefuturehomeownerplan.com/" data-track="login_signup" data-location="topbar">Login / Sign up</a>
       </nav>
       <button class="topbar-hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span>
@@ -727,7 +731,7 @@
   <!-- Mobile slide-down menu -->
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <a class="mobile-menu-link" href="/stories.html">Stories</a>
-    <a class="mobile-menu-cta" href="https://app.thefuturehomeownerplan.com/">Login / Sign up</a>
+    <a class="mobile-menu-cta" href="https://app.thefuturehomeownerplan.com/" data-track="login_signup" data-location="mobile_menu">Login / Sign up</a>
   </div>
 
   <script>
@@ -767,8 +771,8 @@
       <p>A free, step-by-step app that guides first-time buyers from "I think I'm ready" to keys in hand, with a real coach by your side.</p>
 
       <div class="cta-block">
-        <a class="cta-primary" href="https://app.thefuturehomeownerplan.com/">Start my plan →</a>
-        <div class="cta-secondary">Already have an account? <a href="https://app.thefuturehomeownerplan.com/">Sign in</a></div>
+        <a class="cta-primary" href="https://app.thefuturehomeownerplan.com/" data-track="start_my_plan" data-location="hero">Start my plan →</a>
+        <div class="cta-secondary">Already have an account? <a href="https://app.thefuturehomeownerplan.com/" data-track="sign_in" data-location="hero">Sign in</a></div>
         <div class="cta-note">Takes about 3 minutes · No credit card required</div>
       </div>
 
@@ -816,8 +820,8 @@
 
     <!-- CTA #2 -->
     <div class="cta-block">
-      <a class="cta-primary" href="https://app.thefuturehomeownerplan.com/">Start my plan →</a>
-      <div class="cta-secondary">Already have an account? <a href="https://app.thefuturehomeownerplan.com/">Sign in</a></div>
+      <a class="cta-primary" href="https://app.thefuturehomeownerplan.com/" data-track="start_my_plan" data-location="mid_page">Start my plan →</a>
+      <div class="cta-secondary">Already have an account? <a href="https://app.thefuturehomeownerplan.com/" data-track="sign_in" data-location="mid_page">Sign in</a></div>
     </div>
 
     <div style="height: 48px;"></div>
@@ -957,8 +961,8 @@
         <h2>Ready to start your plan?</h2>
         <p>It takes about 3 minutes. You'll get your Future Homeowner Score at the end, plus a personalized checklist to start working on.</p>
         <div class="cta-block">
-          <a class="cta-primary" href="https://app.thefuturehomeownerplan.com/">Start my plan →</a>
-          <div class="cta-secondary">Already have an account? <a href="https://app.thefuturehomeownerplan.com/">Sign in</a></div>
+          <a class="cta-primary" href="https://app.thefuturehomeownerplan.com/" data-track="start_my_plan" data-location="final_cta">Start my plan →</a>
+          <div class="cta-secondary">Already have an account? <a href="https://app.thefuturehomeownerplan.com/" data-track="sign_in" data-location="final_cta">Sign in</a></div>
           <div class="cta-note">100% free · No credit card required</div>
         </div>
       </div>
@@ -972,5 +976,39 @@
     <div class="footer-tiny">The Future Homeowner Plan is an educational tool only, not financial, legal, or mortgage advice. Consult a licensed professional for guidance specific to your situation.</div>
   </footer>
 
+  <!-- GA event tracking + UTM tagging for app links -->
+  <script>
+    (function () {
+      document.addEventListener('click', function (e) {
+        var link = e.target.closest('a[data-track]');
+        if (!link) return;
+
+        var eventName = link.getAttribute('data-track');
+        var location = link.getAttribute('data-location') || 'unknown';
+        var page = (window.location.pathname.split('/').pop() || 'index').replace('.html', '') || 'index';
+
+        // Append UTM params so the app's GA can attribute the source
+        try {
+          var url = new URL(link.href);
+          if (url.hostname.indexOf('app.thefuturehomeownerplan.com') !== -1) {
+            url.searchParams.set('utm_source', 'marketing_site');
+            url.searchParams.set('utm_medium', 'cta_button');
+            url.searchParams.set('utm_campaign', eventName);
+            url.searchParams.set('utm_content', page + '_' + location);
+            link.href = url.toString();
+          }
+        } catch (err) { /* ignore */ }
+
+        // Fire GA event
+        if (typeof gtag === 'function') {
+          gtag('event', eventName, {
+            'location': location,
+            'page': page,
+            'link_url': link.href
+          });
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
