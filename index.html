@@ -153,6 +153,8 @@
     .band-dark .sect-title { color: #fff; }
     .band-dark .sect-sub { color: rgba(255, 255, 255, 0.7); }
     .band-dark .accent-gold { color: var(--gold); font-style: italic; }
+    .band-dark .step-title { color: #fff; }
+    .band-dark .step-desc { color: rgba(255, 255, 255, 0.65); }
 
     .band-gold {
       background: var(--gold-soft);
@@ -262,16 +264,6 @@
         background: linear-gradient(to bottom, rgba(241,239,234,0) 0%, var(--bg) 100%);
         pointer-events: none;
       }
-    }
-
-    /* ========== Webinar embed ========== */
-    .webinar-embed {
-      max-width: 880px;
-      margin: 0 auto;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 24px rgba(15, 23, 42, 0.12);
-      background: #000;
     }
 
     /* ========== Section heading ========== */
@@ -580,47 +572,37 @@
     </section>
   </div>
 
-  <!-- ========== WEBINAR (dark band) ========== -->
+  <!-- ========== HOW IT WORKS (3-up, dark band) ========== -->
   <div class="band band-dark">
     <div class="wrap">
       <section class="page">
         <div class="sect-head">
-          <div class="sect-eyebrow">Live webinar</div>
-          <h2 class="sect-title">Down Payment Assistance <span class="accent-gold">for first-time buyers.</span></h2>
-          <p class="sect-sub">Hosted by Ralph Richardson with Roxana Vazquez of Golden 1 Credit Union.</p>
+          <div class="sect-eyebrow">How it works</div>
+          <h2 class="sect-title">Three simple phases.</h2>
         </div>
-        <div class="webinar-embed">
-          <div style="width:100%;height:0px;position:relative;padding-bottom:56.25%;"><iframe src="https://streamyard.com/watch/4dM7QHERwcZm?embed=true" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen" style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
+        <div class="three-up">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3 class="step-title">Plan It.</h3>
+            <p class="step-desc">Get mortgage-ready. Build credit. Save for a down payment.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3 class="step-title">Find It.</h3>
+            <p class="step-desc">Build your wish list. Tour homes. Make smart offers.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3 class="step-title">Own It.</h3>
+            <p class="step-desc">Navigate escrow with confidence. Pick up your keys.</p>
+          </div>
         </div>
       </section>
     </div>
   </div>
 
-  <!-- ========== HOW IT WORKS + FEATURES (cream band) ========== -->
+  <!-- ========== FEATURES (cream band) ========== -->
   <div class="wrap">
-    <section class="page">
-      <div class="sect-head">
-        <div class="sect-eyebrow">How it works</div>
-        <h2 class="sect-title">Three simple phases.</h2>
-      </div>
-      <div class="three-up">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h3 class="step-title">Plan It.</h3>
-          <p class="step-desc">Get mortgage-ready. Build credit. Save for a down payment.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h3 class="step-title">Find It.</h3>
-          <p class="step-desc">Build your wish list. Tour homes. Make smart offers.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h3 class="step-title">Own It.</h3>
-          <p class="step-desc">Navigate escrow with confidence. Pick up your keys.</p>
-        </div>
-      </div>
-    </section>
 
     <section class="page">
       <div class="feature-row">
