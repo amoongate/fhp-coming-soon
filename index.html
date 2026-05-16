@@ -16,8 +16,8 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>The Future Homeowner Plan — Your roadmap to owning your first home</title>
-  <meta name="description" content="A free, step-by-step app that guides first-time buyers from 'I think I'm ready' to keys in hand, with a real coach by your side." />
+  <title>The Future Homeowner Plan · Your roadmap to your first home</title>
+  <meta name="description" content="A free app and a real coach, guiding first-time buyers from rent to keys." />
   <meta name="theme-color" content="#f1efea" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
 
@@ -32,8 +32,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
 
-  <meta property="og:title" content="The Future Homeowner Plan — Your roadmap to owning your first home" />
-  <meta property="og:description" content="A free, step-by-step app that guides first-time buyers from 'I think I'm ready' to keys in hand, with a real coach by your side." />
+  <meta property="og:title" content="The Future Homeowner Plan · Your roadmap to your first home" />
+  <meta property="og:description" content="A free app and a real coach, guiding first-time buyers from rent to keys." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://thefuturehomeownerplan.com" />
   <meta property="og:site_name" content="The Future Homeowner Plan" />
@@ -42,8 +42,8 @@
   <meta property="og:image:height" content="630" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The Future Homeowner Plan — Your roadmap to owning your first home" />
-  <meta name="twitter:description" content="A free, step-by-step app that guides first-time buyers from 'I think I'm ready' to keys in hand, with a real coach by your side." />
+  <meta name="twitter:title" content="The Future Homeowner Plan · Your roadmap to your first home" />
+  <meta name="twitter:description" content="A free app and a real coach, guiding first-time buyers from rent to keys." />
   <meta name="twitter:image" content="https://thefuturehomeownerplan.com/og-minimal-v2.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -61,10 +61,9 @@
       --gold-soft: #f5efe3;
       --green: #2f5f4f;
       --green-soft: #e9f3ee;
-      --blue-soft: #e9eff7;
       --border: #e5e1d7;
       --dark: #1f2333;
-      --dark-border: #2d3344;
+      --cream: #f1efea;
 
       --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
       --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -78,11 +77,9 @@
       font-family: var(--font-body);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      min-height: 100vh;
-      min-height: 100dvh;
     }
 
-    /* Sticky topbar — absorbs the top safe area so content never hides under the notch/status bar */
+    /* ========== Topbar ========== */
     .topbar {
       position: sticky;
       top: 0;
@@ -90,15 +87,12 @@
       background: rgba(241, 239, 234, 0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
       padding-top: env(safe-area-inset-top);
     }
     .topbar-inner {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 12px 24px;
-      padding-left: max(24px, env(safe-area-inset-left));
-      padding-right: max(24px, env(safe-area-inset-right));
+      padding: 16px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -111,495 +105,328 @@
       text-decoration: none;
       color: var(--ink);
     }
-    .topbar-logo {
-      width: 36px;
-      height: 36px;
-      flex-shrink: 0;
-    }
-    .topbar-logo svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-    .topbar-name {
-      font-weight: 700;
-      font-size: 15px;
-      line-height: 1.1;
-    }
-    .topbar-sub {
-      font-size: 10px;
-      color: var(--gold);
-      letter-spacing: 0.9px;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-    .topbar-signin {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--cream);
-      text-decoration: none;
-      padding: 9px 18px;
-      border-radius: 999px;
-      background: var(--green);
-      white-space: nowrap;
-      transition: background 0.15s ease;
-    }
-    .topbar-signin:hover { background: #244a3e; }
-
-    /* Nav links — desktop only */
+    .topbar-logo svg { width: 32px; height: 32px; display: block; }
+    .topbar-name { font-weight: 700; font-size: 14px; line-height: 1.1; }
     .topbar-nav {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 20px;
     }
     .topbar-link {
       font-size: 13px;
       color: var(--ink);
       text-decoration: none;
       font-weight: 600;
-      transition: color 0.15s ease;
     }
     .topbar-link:hover { color: var(--green); }
-    .topbar-link.is-active { color: var(--green); }
-
-    /* Hamburger button — mobile only */
-    .topbar-hamburger {
-      display: none;
-      background: transparent;
-      border: 0;
-      padding: 10px;
-      margin: -10px;
-      cursor: pointer;
-      flex-direction: column;
-      gap: 4px;
-      align-items: center;
-      justify-content: center;
-    }
-    .topbar-hamburger span {
-      display: block;
-      width: 20px;
-      height: 2px;
-      background: var(--ink);
-      border-radius: 1px;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-    .topbar-hamburger.is-open span:nth-child(1) {
-      transform: translateY(6px) rotate(45deg);
-    }
-    .topbar-hamburger.is-open span:nth-child(2) {
-      opacity: 0;
-    }
-    .topbar-hamburger.is-open span:nth-child(3) {
-      transform: translateY(-6px) rotate(-45deg);
-    }
-
-    /* Mobile slide-down panel */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: var(--cream);
-      z-index: 49;
-      padding: 70px 20px 24px;
-      padding-top: calc(70px + env(safe-area-inset-top));
-      border-bottom: 1px solid var(--border);
-      transform: translateY(-100%);
-      transition: transform 0.25s ease;
-    }
-    .mobile-menu.is-open {
-      display: block;
-      transform: translateY(0);
-    }
-    .mobile-menu-link {
-      display: block;
-      padding: 16px 4px;
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 0.5px solid var(--border);
-    }
-    .mobile-menu-link:hover { color: var(--green); }
-    .mobile-menu-cta {
-      display: block;
-      margin-top: 18px;
-      background: var(--green);
-      color: var(--cream);
-      padding: 14px 20px;
-      border-radius: 999px;
-      font-size: 15px;
-      font-weight: 700;
-      text-decoration: none;
-      text-align: center;
-    }
-
-    @media (max-width: 720px) {
-      .topbar-nav { display: none; }
-      .topbar-signin { display: none; }
-      .topbar-hamburger { display: flex; }
-    }
-
-    .wrap {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    /* Hero */
-    .hero {
-      text-align: center;
-      padding-top: 8px;
-      padding-bottom: 12px;
-    }
-    .hero-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 12px;
+    .topbar-signin {
+      font-size: 13px;
       font-weight: 600;
       color: var(--green);
-      margin-bottom: 22px;
+      text-decoration: none;
     }
-    .hero-pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
+    @media (max-width: 540px) {
+      .topbar-name { display: none; }
+    }
+
+    /* ========== Wrap ========== */
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      padding-left: max(24px, env(safe-area-inset-left));
+      padding-right: max(24px, env(safe-area-inset-right));
+    }
+
+    section.page { padding: 56px 0; }
+    section.page.first { padding-top: 32px; }
+
+    /* ========== Full-bleed bands ========== */
+    .band {
+      width: 100%;
+    }
+    .band-dark {
+      background: var(--dark);
+      color: #fff;
+    }
+    .band-dark .sect-eyebrow { color: var(--gold); }
+    .band-dark .sect-title { color: #fff; }
+    .band-dark .sect-sub { color: rgba(255, 255, 255, 0.7); }
+    .band-dark .accent-gold { color: var(--gold); font-style: italic; }
+
+    .band-gold {
+      background: var(--gold-soft);
+    }
+
+    .band-blue {
+      background: var(--dark);
+      color: var(--cream);
+    }
+    .band-blue .ralph-quote { color: #fff; }
+    .band-blue .ralph-name { color: #fff; }
+    .band-blue .ralph-meta { color: rgba(241, 239, 234, 0.65); }
+    .band-blue .ralph-avatar {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .band-green {
       background: var(--green);
-      animation: pulse 2.4s ease-in-out infinite;
+      color: var(--cream);
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.55; transform: scale(1.18); }
+    .band-green .final-cta h2 { color: var(--cream); }
+    .band-green .final-cta p { color: rgba(241, 239, 234, 0.75); }
+    .band-green .accent-cream { color: var(--gold); font-style: italic; }
+    .cta-on-green {
+      background: var(--gold);
+      color: var(--dark);
+    }
+    .cta-on-green:hover {
+      background: #b89232;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      padding: 48px 0 64px;
     }
     .hero h1 {
       font-family: var(--font-serif);
-      font-size: clamp(36px, 8vw, 54px);
+      font-size: clamp(40px, 6vw, 72px);
       font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -1px;
-      margin: 0 0 18px;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      margin: 0 0 24px;
     }
-    .hero h1 .accent { color: var(--green); }
+    .accent { color: var(--green); font-style: italic; }
     .hero p {
-      font-size: clamp(16px, 3vw, 18px);
-      line-height: 1.6;
-      color: var(--muted);
-      margin: 0 auto 28px;
-      max-width: 520px;
-    }
-
-    /* CTA block (reusable) */
-    .cta-block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      margin: 8px 0 0;
+      font-size: clamp(17px, 1.7vw, 21px);
+      line-height: 1.45;
+      color: rgba(15,23,42,0.7);
+      margin: 0 0 36px;
+      max-width: 460px;
     }
     .cta-primary {
       display: inline-block;
-      padding: 16px 32px;
-      background: var(--ink);
-      color: #fff;
-      border: none;
-      border-radius: 12px;
-      font-family: var(--font-body);
-      font-size: 16px;
-      font-weight: 600;
+      background: var(--green);
+      color: var(--cream);
+      padding: 18px 38px;
+      border-radius: 999px;
+      font-size: 17px;
+      font-weight: 700;
       text-decoration: none;
-      cursor: pointer;
-      transition: opacity 0.15s ease, transform 0.05s ease;
-      min-width: 240px;
-      text-align: center;
+      transition: background 0.15s ease, transform 0.15s ease;
     }
-    .cta-primary:hover { opacity: 0.88; }
-    .cta-primary:active { transform: scale(0.985); }
-    .cta-secondary {
-      font-size: 13px;
-      color: var(--muted);
+    .cta-primary:hover {
+      background: #244a3e;
+      transform: translateY(-1px);
     }
-    .cta-secondary a {
-      color: var(--ink);
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .cta-secondary a:hover { text-decoration: underline; }
-    .cta-note {
-      font-size: 12px;
-      color: var(--muted-light);
-      margin-top: 2px;
-    }
-
-    /* Trust strip */
-    .trust {
+    .hero-phone {
       display: flex;
       justify-content: center;
-      gap: 24px;
-      margin-top: 32px;
-      flex-wrap: wrap;
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .trust-item {
-      display: flex;
       align-items: center;
-      gap: 6px;
     }
-    .trust-check { color: var(--green); font-weight: 700; }
-
-    /* Section heads */
-    .section-head {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-    .section-eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-    .section-title {
-      font-family: var(--font-serif);
-      font-size: clamp(26px, 6vw, 36px);
-      font-weight: 800;
-      margin: 0 0 10px;
-      letter-spacing: -0.6px;
-      line-height: 1.15;
-    }
-    .section-sub {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.6;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-
-    section { margin-bottom: 48px; }
-
-    /* Phases */
-    .phases {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .phase {
-      background: var(--surface);
-      border-radius: 16px;
-      padding: 20px;
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-    }
-    .phase-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      flex-shrink: 0;
-    }
-    .phase-icon.plan { background: var(--green-soft); }
-    .phase-icon.find { background: var(--blue-soft); }
-    .phase-icon.own { background: var(--gold-soft); }
-    .phase-num {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: var(--gold);
-      margin-bottom: 3px;
-    }
-    .phase-name {
-      font-family: var(--font-serif);
-      font-weight: 800;
-      font-size: 20px;
-      margin-bottom: 4px;
-    }
-    .phase-desc {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    /* Features */
-    .features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    .feature {
-      background: var(--surface);
-      border-radius: 14px;
-      padding: 18px;
-    }
-    .feature-icon {
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
-    .feature-title {
-      font-weight: 700;
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
-    .feature-desc {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    /* How it works */
-    .how {
-      background: var(--surface);
-      border-radius: 18px;
-      padding: 26px 22px;
-    }
-    .how-step {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .how-step:last-child { border-bottom: none; padding-bottom: 0; }
-    .how-step:first-child { padding-top: 0; }
-    .how-num {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--gold-soft);
-      color: var(--gold);
-      font-weight: 800;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .how-step-title {
-      font-weight: 700;
-      font-size: 15px;
-      margin-bottom: 2px;
-    }
-    .how-step-desc {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    /* Ralph dark card */
-    .ralph {
-      background: var(--dark);
-      border-radius: 18px;
-      padding: 26px 22px;
-      color: #fff;
-    }
-    .ralph-head {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-    .ralph-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--gold);
-      color: #fff;
-      font-weight: 800;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .ralph-avatar img {
+    .hero-phone img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      max-width: 360px;
+      height: auto;
     }
-    .ralph-eyebrow {
+
+    @media (max-width: 760px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+        padding: 16px 0 40px;
+      }
+      .hero-copy p { margin-left: auto; margin-right: auto; }
+      .hero-phone {
+        order: -1;
+        overflow: hidden;
+        max-height: 320px;
+        position: relative;
+      }
+      .hero-phone img {
+        max-width: 280px;
+        margin-bottom: -200px;
+      }
+      .hero-phone::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 80px;
+        background: linear-gradient(to bottom, rgba(241,239,234,0) 0%, var(--bg) 100%);
+        pointer-events: none;
+      }
+    }
+
+    /* ========== Webinar embed ========== */
+    .webinar-embed {
+      max-width: 880px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(15, 23, 42, 0.12);
+      background: #000;
+    }
+
+    /* ========== Section heading ========== */
+    .sect-head {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 48px;
+    }
+    .sect-eyebrow {
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--muted-light);
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
     }
-    .ralph-quote {
-      font-size: 15px;
-      line-height: 1.6;
-      color: #f3f4f6;
-      font-style: italic;
+    .sect-title {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -1px;
       margin: 0;
     }
-    .ralph-credits {
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px solid var(--dark-border);
-    }
-    .ralph-name {
-      font-weight: 700;
-      font-size: 15px;
-      margin-bottom: 2px;
-    }
-    .ralph-meta {
-      font-size: 12px;
-      color: var(--muted-light);
+    .sect-sub {
+      font-size: 16px;
       line-height: 1.5;
-    }
-    .ralph-phone {
-      display: inline-block;
-      font-size: 13px;
-      color: var(--gold);
-      text-decoration: none;
-      margin-top: 10px;
-      font-weight: 600;
-    }
-    .ralph-phone:hover { text-decoration: underline; }
-
-    /* Final CTA */
-    .final-cta {
-      background: var(--surface);
-      border-radius: 18px;
-      padding: 36px 22px;
-      text-align: center;
-    }
-    .final-cta h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(28px, 6vw, 36px);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.5px;
-      margin: 0 0 12px;
-    }
-    .final-cta p {
-      font-size: 15px;
       color: var(--muted);
-      line-height: 1.6;
-      margin: 0 auto 24px;
-      max-width: 420px;
+      margin: 14px auto 0;
+      max-width: 540px;
     }
 
-    /* Stories section — inline video embeds */
+    /* ========== 3-up phases ========== */
+    .three-up {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .step { text-align: center; }
+    .step-num {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .step-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      margin: 0 0 10px;
+    }
+    .step-desc {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--muted);
+      max-width: 240px;
+      margin: 0 auto;
+    }
+    @media (max-width: 760px) {
+      .three-up { grid-template-columns: 1fr; gap: 36px; }
+    }
+
+    /* ========== Feature rows (alternating image + copy) ========== */
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .feature-row.reverse .feature-copy { order: 2; }
+    .feature-row.reverse .feature-phone { order: 1; }
+    .feature-row + .feature-row { margin-top: 96px; }
+
+    .feature-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .feature-title {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3.6vw, 40px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.8px;
+      margin: 0 0 16px;
+    }
+    .feature-desc {
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--muted);
+      margin: 0;
+      max-width: 380px;
+    }
+    .feature-phone {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .feature-phone img {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+    }
+    @media (max-width: 760px) {
+      .feature-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+      }
+      .feature-row.reverse .feature-copy,
+      .feature-row.reverse .feature-phone { order: initial; }
+      .feature-copy p { margin-left: auto; margin-right: auto; }
+      .feature-row + .feature-row { margin-top: 64px; }
+
+      .feature-phone {
+        overflow: hidden;
+        max-height: 280px;
+        position: relative;
+        order: -1;
+      }
+      .feature-phone img {
+        max-width: 240px;
+        margin-bottom: -200px;
+      }
+      .feature-phone::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 70px;
+        background: linear-gradient(to bottom, rgba(241,239,234,0) 0%, var(--bg) 100%);
+        pointer-events: none;
+      }
+    }
+
+    /* ========== Stories ========== */
     .stories-videos {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 22px 0 26px;
+      gap: 24px;
+      max-width: 880px;
+      margin: 0 auto 28px;
     }
-    .story-video {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .story-video { display: flex; flex-direction: column; gap: 12px; }
     .story-video-frame {
       position: relative;
       width: 100%;
@@ -622,66 +449,83 @@
       line-height: 1.45;
       padding: 0 4px;
     }
-    .story-video-caption strong {
-      color: var(--ink);
-      font-weight: 700;
-    }
-
-    /* Stack videos on mobile */
+    .story-video-caption strong { color: var(--ink); font-weight: 700; }
     @media (max-width: 640px) {
-      .stories-videos {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
+      .stories-videos { grid-template-columns: 1fr; gap: 20px; }
     }
-
-    .story-quote {
-      background: #fff;
-      border-radius: 12px;
-      padding: 18px 22px;
-      border-left: 3px solid var(--gold);
-      margin: 0 auto 22px;
-      max-width: 540px;
-    }
-    .story-quote-text {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 15px;
-      color: var(--ink);
-      line-height: 1.5;
-      margin: 0 0 8px;
-    }
-    .story-quote-attr {
-      font-size: 12px;
-      color: rgba(15, 23, 42, 0.6);
-      font-weight: 600;
-    }
-    .stories-cta {
-      text-align: center;
-    }
+    .stories-cta { text-align: center; }
     .stories-cta a {
       display: inline-block;
       color: var(--green);
-      border: 1px solid var(--green);
-      padding: 10px 22px;
-      border-radius: 999px;
       font-size: 14px;
       font-weight: 600;
       text-decoration: none;
-      transition: background 0.15s ease, color 0.15s ease;
     }
-    .stories-cta a:hover { background: var(--green); color: var(--cream); }
+    .stories-cta a:hover { text-decoration: underline; }
 
-    /* Footer */
+    /* ========== Ralph note ========== */
+    .ralph {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .ralph-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .ralph-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .ralph-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -0.4px;
+      margin: 0 0 20px;
+    }
+    .ralph-name { font-weight: 700; font-size: 15px; }
+    .ralph-meta { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+    /* ========== Final CTA ========== */
+    .final-cta {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .final-cta h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5.5vw, 56px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.0;
+      margin: 0 0 16px;
+    }
+    .final-cta p {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0 0 32px;
+    }
+
+    /* ========== Footer ========== */
     .footer {
       text-align: center;
       font-size: 12px;
       color: var(--muted-light);
       line-height: 1.7;
-      padding: 32px 20px 16px;
-      padding-bottom: calc(16px + env(safe-area-inset-bottom));
-      border-top: 1px solid var(--border);
-      margin-top: 20px;
+      padding: 32px 20px 20px;
+      padding-bottom: calc(20px + env(safe-area-inset-bottom));
+      margin-top: 24px;
     }
     .footer-tiny {
       font-size: 11px;
@@ -693,10 +537,9 @@
     }
 
     @media (max-width: 420px) {
-      .wrap { padding: 32px 16px; }
-      .phase, .feature, .how, .ralph, .final-cta { padding: 20px 16px; }
-      .cta-primary { min-width: 0; width: 100%; padding: 15px 24px; }
-      .topbar-inner { padding: 10px 16px; }
+      .wrap { padding: 0 20px; }
+      section.page { padding: 40px 0; }
+      .feature-row + .feature-row { margin-top: 48px; }
     }
   </style>
 </head>
@@ -705,230 +548,145 @@
   <header class="topbar">
     <div class="topbar-inner">
       <a class="topbar-brand" href="/">
-        <div class="topbar-logo">
-          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Future Homeowner Plan logo">
+        <div>
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="logo">
             <rect width="64" height="64" rx="14" fill="#2f5f4f"/>
             <path d="M14 30 L32 14 L50 30 L46 30 L46 48 L36 48 L36 38 L28 38 L28 48 L18 48 L18 30 Z" fill="#f1efea"/>
             <rect x="30" y="30" width="4" height="6" fill="#c9a54a"/>
           </svg>
         </div>
-        <div>
-          <div class="topbar-name">The Future Homeowner Plan</div>
-        </div>
+        <div class="topbar-name">The Future Homeowner Plan</div>
       </a>
-      <nav class="topbar-nav" aria-label="Main">
-        <a class="topbar-link " href="/stories.html">Stories</a>
-        <a class="topbar-signin" href="https://app.thefuturehomeownerplan.com/" data-track="login_signup" data-location="topbar">Login / Sign up</a>
+      <nav class="topbar-nav">
+        <a class="topbar-link" href="/stories.html">Stories</a>
+        <a class="topbar-signin" href="https://app.thefuturehomeownerplan.com/" data-track="sign_in" data-location="topbar">Sign in</a>
       </nav>
-      <button class="topbar-hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
   </header>
 
-  <!-- Mobile slide-down menu -->
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <a class="mobile-menu-link" href="/stories.html">Stories</a>
-    <a class="mobile-menu-cta" href="https://app.thefuturehomeownerplan.com/" data-track="login_signup" data-location="mobile_menu">Login / Sign up</a>
+  <!-- ========== HERO (cream band) ========== -->
+  <div class="wrap">
+    <section class="page first">
+      <div class="hero">
+        <div class="hero-copy">
+          <h1>Your roadmap to your <span class="accent">first home.</span></h1>
+          <p>A free app and a real coach, guiding first-time buyers from rent to keys.</p>
+          <a class="cta-primary" href="https://app.thefuturehomeownerplan.com/" data-track="start_my_plan" data-location="hero">Get started</a>
+        </div>
+        <div class="hero-phone">
+          <img src="phone_home.png" alt="The Future Homeowner Plan app home screen showing a Future Homeowner Score of 65 out of 100" />
+        </div>
+      </div>
+    </section>
   </div>
 
-  <script>
-    (function () {
-      var btn = document.getElementById('hamburgerBtn');
-      var menu = document.getElementById('mobileMenu');
-      if (!btn || !menu) return;
-      function toggle() {
-        var open = menu.classList.toggle('is-open');
-        btn.classList.toggle('is-open', open);
-        btn.setAttribute('aria-expanded', String(open));
-        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-        menu.setAttribute('aria-hidden', String(!open));
-        document.body.style.overflow = open ? 'hidden' : '';
-      }
-      btn.addEventListener('click', toggle);
-      // Close menu when a link inside it is tapped
-      menu.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () { if (menu.classList.contains('is-open')) toggle(); });
-      });
-      // Close on Escape
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && menu.classList.contains('is-open')) toggle();
-      });
-    })();
-  </script>
-
-  <div class="wrap">
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-pill">
-        <span class="hero-pill-dot"></span>
-        The app is live. Free for buyers.
-      </div>
-      <h1>Your roadmap to owning your <span class="accent">first home.</span></h1>
-      <p>A free, step-by-step app that guides first-time buyers from "I think I'm ready" to keys in hand, with a real coach by your side.</p>
-
-      <div class="cta-block">
-        <a class="cta-primary" href="https://app.thefuturehomeownerplan.com/" data-track="start_my_plan" data-location="hero">Start my plan →</a>
-        <div class="cta-secondary">Already have an account? <a href="https://app.thefuturehomeownerplan.com/" data-track="sign_in" data-location="hero">Sign in</a></div>
-        <div class="cta-note">Takes about 3 minutes · No credit card required</div>
-      </div>
-
-      <div class="trust">
-        <div class="trust-item"><span class="trust-check">✓</span> 100% free</div>
-        <div class="trust-item"><span class="trust-check">✓</span> No spam, ever</div>
-        <div class="trust-item"><span class="trust-check">✓</span> Real coach included</div>
-      </div>
-    </section>
-
-    <!-- PHASES -->
-    <section>
-      <div class="section-head">
-        <div class="section-eyebrow">The three-phase journey</div>
-        <h2 class="section-title">Plan It. Find It. Own It.</h2>
-        <p class="section-sub">Everything a first-time buyer needs, broken into three clear phases. Each one unlocks when you're ready.</p>
-      </div>
-      <div class="phases">
-        <div class="phase">
-          <div class="phase-icon plan">📋</div>
-          <div>
-            <div class="phase-num">PHASE 1</div>
-            <div class="phase-name">Plan It</div>
-            <div class="phase-desc">Build your personalized readiness plan. Get your Future Homeowner Score across 7 key areas: credit, budget, down payment, and more.</div>
-          </div>
+  <!-- ========== WEBINAR (dark band) ========== -->
+  <div class="band band-dark">
+    <div class="wrap">
+      <section class="page">
+        <div class="sect-head">
+          <div class="sect-eyebrow">Live webinar</div>
+          <h2 class="sect-title">Down Payment Assistance <span class="accent-gold">for first-time buyers.</span></h2>
+          <p class="sect-sub">Hosted by Ralph Richardson with Roxana Vazquez of Golden 1 Credit Union.</p>
         </div>
-        <div class="phase">
-          <div class="phase-icon find">🔍</div>
-          <div>
-            <div class="phase-num">PHASE 2</div>
-            <div class="phase-name">Find It</div>
-            <div class="phase-desc">Build your home wish list and learn how to search, make offers, and negotiate, with your coach unlocking each stage as you progress.</div>
-          </div>
+        <div class="webinar-embed">
+          <div style="width:100%;height:0px;position:relative;padding-bottom:56.25%;"><iframe src="https://streamyard.com/watch/4dM7QHERwcZm?embed=true" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen" style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
         </div>
-        <div class="phase">
-          <div class="phase-icon own">🏡</div>
-          <div>
-            <div class="phase-num">PHASE 3</div>
-            <div class="phase-name">Own It</div>
-            <div class="phase-desc">Walk through escrow, inspections, and closing with confidence. Video guides cover every step to your keys.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA #2 -->
-    <div class="cta-block">
-      <a class="cta-primary" href="https://app.thefuturehomeownerplan.com/" data-track="start_my_plan" data-location="mid_page">Start my plan →</a>
-      <div class="cta-secondary">Already have an account? <a href="https://app.thefuturehomeownerplan.com/" data-track="sign_in" data-location="mid_page">Sign in</a></div>
+      </section>
     </div>
+  </div>
 
-    <div style="height: 48px;"></div>
-
-    <!-- HOW IT WORKS -->
-    <section>
-      <div class="section-head">
-        <div class="section-eyebrow">How it works</div>
-        <h2 class="section-title">Three simple steps.</h2>
+  <!-- ========== HOW IT WORKS + FEATURES (cream band) ========== -->
+  <div class="wrap">
+    <section class="page">
+      <div class="sect-head">
+        <div class="sect-eyebrow">How it works</div>
+        <h2 class="sect-title">Three simple phases.</h2>
       </div>
-      <div class="how">
-        <div class="how-step">
-          <div class="how-num">1</div>
-          <div>
-            <div class="how-step-title">Answer 7 questions with Clarity</div>
-            <div class="how-step-desc">Our AI guide walks you through credit, income, savings, and more. No jargon. No judgment.</div>
-          </div>
+      <div class="three-up">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3 class="step-title">Plan It.</h3>
+          <p class="step-desc">Get mortgage-ready. Build credit. Save for a down payment.</p>
         </div>
-        <div class="how-step">
-          <div class="how-num">2</div>
-          <div>
-            <div class="how-step-title">Get your Future Homeowner Score</div>
-            <div class="how-step-desc">See exactly where you stand and what to work on next. Your personalized plan updates as you do.</div>
-          </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3 class="step-title">Find It.</h3>
+          <p class="step-desc">Build your wish list. Tour homes. Make smart offers.</p>
         </div>
-        <div class="how-step">
-          <div class="how-num">3</div>
-          <div>
-            <div class="how-step-title">Connect with Ralph</div>
-            <div class="how-step-desc">Your coach reviews your plan and guides you, step by step, all the way to your keys.</div>
-          </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3 class="step-title">Own It.</h3>
+          <p class="step-desc">Navigate escrow with confidence. Pick up your keys.</p>
         </div>
       </div>
     </section>
 
-    <!-- FEATURES -->
-    <section>
-      <div class="section-head">
-        <div class="section-eyebrow">What's inside</div>
-        <h2 class="section-title">Everything in one place.</h2>
-        <p class="section-sub">Built specifically for first-time buyers. No jargon, no confusion, just a clear path forward.</p>
+    <section class="page">
+      <div class="feature-row">
+        <div class="feature-copy">
+          <div class="feature-eyebrow">Plan it</div>
+          <h3 class="feature-title">Get mortgage-ready.</h3>
+          <p class="feature-desc">Seven modules walk you through credit, down payment, and what lenders look for.</p>
+        </div>
+        <div class="feature-phone">
+          <img src="phone_plan_it_modules.png" alt="Plan It tab showing 7 modules with progress" />
+        </div>
       </div>
-      <div class="features">
-        <div class="feature">
-          <div class="feature-icon">✨</div>
-          <div class="feature-title">Clarity AI</div>
-          <div class="feature-desc">Ask anything about buying, any time.</div>
+
+      <div class="feature-row reverse">
+        <div class="feature-copy">
+          <div class="feature-eyebrow">Find it</div>
+          <h3 class="feature-title">Know what you want.</h3>
+          <p class="feature-desc">A wish list that stays with you across every home you tour.</p>
         </div>
-        <div class="feature">
-          <div class="feature-icon">📊</div>
-          <div class="feature-title">Homeowner Score</div>
-          <div class="feature-desc">Your readiness across 7 key areas.</div>
+        <div class="feature-phone">
+          <img src="phone_find_it_wishlist.png" alt="Find It wish list with property type, bedrooms, areas filled in" />
         </div>
-        <div class="feature">
-          <div class="feature-icon">✅</div>
-          <div class="feature-title">Step-by-step plan</div>
-          <div class="feature-desc">Custom action list built from your answers.</div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-copy">
+          <div class="feature-eyebrow">Talk to your coach</div>
+          <h3 class="feature-title">A licensed Realtor. One tap.</h3>
+          <p class="feature-desc">Text or call a real person through the app, anytime. AI guide Clarity is here too, 24/7.</p>
         </div>
-        <div class="feature">
-          <div class="feature-icon">🧮</div>
-          <div class="feature-title">Built-in calculators</div>
-          <div class="feature-desc">Mortgage, DTI, pre-filled from your profile.</div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">👤</div>
-          <div class="feature-title">Real human coach</div>
-          <div class="feature-desc">Message Ralph directly inside the app.</div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">🔒</div>
-          <div class="feature-title">100% free</div>
-          <div class="feature-desc">No subscriptions. No hidden fees. Ever.</div>
+        <div class="feature-phone">
+          <img src="phone_chat_ralph.png" alt="Chat screen to message or call your home buying coach" />
         </div>
       </div>
     </section>
+  </div>
 
-    <!-- RALPH -->
-    <section>
-      <div class="ralph">
-        <div class="ralph-head">
+  <!-- ========== RALPH NOTE (blue band) ========== -->
+  <div class="band band-blue">
+    <div class="wrap">
+      <section class="page">
+        <div class="ralph">
           <div class="ralph-avatar">
-            <img src="https://media.licdn.com/dms/image/v2/D5603AQEM06h3L1qBNw/profile-displayphoto-scale_400_400/B56ZilrqA9HQAk-/0/1755126342175?e=1777507200&v=beta&t=r_zmnBxlH_p4kn7BWkjuOBIyqAyEhXuSKj1MNhNY3Yk" alt="Ralph Richardson" onerror="this.style.display='none';this.parentElement.textContent='RR';" />
+            <img src="https://media.licdn.com/dms/image/v2/D5603AQEM06h3L1qBNw/profile-displayphoto-scale_400_400/B56ZilrqA9HQAk-/0/1755126342175?e=1777507200&v=beta&t=r_zmnBxlH_p4kn7BWkjuOBIyqAyEhXuSKj1MNhNY3Yk" alt="Ralph Richardson" onerror="this.parentElement.style.display='none';" />
           </div>
-          <div class="ralph-eyebrow">A note from Ralph</div>
-        </div>
-        <p class="ralph-quote">"I've helped many first-time buyers in Southern California go from renting to owning. I built this app to give every buyer the same guidance I give my personal clients: organized, step-by-step, and always with a real coach by your side."</p>
-        <div class="ralph-credits">
+          <p class="ralph-quote">"I built this app to give every first-time buyer the same guidance I give my personal clients."</p>
           <div class="ralph-name">Ralph Richardson</div>
-          <div class="ralph-meta">Realtor & Home Buying Coach</div>
-          <div class="ralph-meta">Keller Williams Corona · DRE# 02054110</div>
-          <a href="tel:9096454394" class="ralph-phone">909.645.4394</a>
+          <div class="ralph-meta">Realtor · KW Corona · DRE# 02054110</div>
         </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ========== STORIES (cream band) ========== -->
+  <div class="wrap">
+    <section class="page">
+      <div class="sect-head">
+        <div class="sect-eyebrow">Real homeowners</div>
+        <h2 class="sect-title">Since 2019. <span style="color: var(--gold);">Many keys.</span></h2>
       </div>
-    </section>
-
-    <!-- SUCCESS STORIES -->
-    <section>
-      <div class="section-eyebrow">Real homeowners</div>
-      <h2 class="section-title">Since 2019. <span style="color: var(--gold);">Many keys.</span></h2>
-      <p style="text-align: center; color: rgba(15, 23, 42, 0.7); font-size: 15px; max-width: 460px; margin: 0 auto 8px;">Home buyers who walked the same journey you're starting today.</p>
-
       <div class="stories-videos">
         <div class="story-video">
           <div class="story-video-frame">
             <iframe
               src="https://www.youtube.com/embed/fUVcbDkDYqE"
-              title="Praise — Future Homeowner Plan grad"
+              title="Praise · Future Homeowner Plan grad"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
@@ -940,7 +698,7 @@
           <div class="story-video-frame">
             <iframe
               src="https://www.youtube.com/embed/pguZ2kZ1sio"
-              title="Etta — A new legacy for this family"
+              title="Etta · A new legacy for this family"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
@@ -949,25 +707,23 @@
           <div class="story-video-caption"><strong>"OMG, is this real?!"</strong> Etta and her family started a new legacy of homeownership.</div>
         </div>
       </div>
-
       <div class="stories-cta">
-        <a href="/stories.html">See More Stories →</a>
+        <a href="/stories.html">See more stories →</a>
       </div>
     </section>
+  </div>
 
-    <!-- FINAL CTA -->
-    <section>
-      <div class="final-cta">
-        <h2>Ready to start your plan?</h2>
-        <p>It takes about 3 minutes. You'll get your Future Homeowner Score at the end, plus a personalized checklist to start working on.</p>
-        <div class="cta-block">
-          <a class="cta-primary" href="https://app.thefuturehomeownerplan.com/" data-track="start_my_plan" data-location="final_cta">Start my plan →</a>
-          <div class="cta-secondary">Already have an account? <a href="https://app.thefuturehomeownerplan.com/" data-track="sign_in" data-location="final_cta">Sign in</a></div>
-          <div class="cta-note">100% free · No credit card required</div>
+  <!-- ========== FINAL CTA (green band) ========== -->
+  <div class="band band-green">
+    <div class="wrap">
+      <section class="page">
+        <div class="final-cta">
+          <h2>Start your <span class="accent-cream">plan.</span></h2>
+          <p>Free. About 3 minutes.</p>
+          <a class="cta-primary cta-on-green" href="https://app.thefuturehomeownerplan.com/" data-track="start_my_plan" data-location="final_cta">Get started</a>
         </div>
-      </div>
-    </section>
-
+      </section>
+    </div>
   </div>
 
   <footer class="footer">
@@ -976,7 +732,6 @@
     <div class="footer-tiny">The Future Homeowner Plan is an educational tool only, not financial, legal, or mortgage advice. Consult a licensed professional for guidance specific to your situation.</div>
   </footer>
 
-  <!-- GA event tracking + UTM tagging for app links -->
   <script>
     (function () {
       document.addEventListener('click', function (e) {
@@ -987,7 +742,6 @@
         var location = link.getAttribute('data-location') || 'unknown';
         var page = (window.location.pathname.split('/').pop() || 'index').replace('.html', '') || 'index';
 
-        // Append UTM params so the app's GA can attribute the source
         try {
           var url = new URL(link.href);
           if (url.hostname.indexOf('app.thefuturehomeownerplan.com') !== -1) {
@@ -999,7 +753,6 @@
           }
         } catch (err) { /* ignore */ }
 
-        // Fire GA event
         if (typeof gtag === 'function') {
           gtag('event', eventName, {
             'location': location,
