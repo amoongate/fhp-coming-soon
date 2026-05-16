@@ -122,9 +122,14 @@
     .topbar-signin {
       font-size: 13px;
       font-weight: 600;
-      color: var(--green);
+      color: var(--cream);
       text-decoration: none;
+      background: var(--green);
+      padding: 8px 16px;
+      border-radius: 999px;
+      transition: background 0.15s ease;
     }
+    .topbar-signin:hover { background: #244a3e; }
     @media (max-width: 540px) {
       .topbar-name { display: none; }
     }
@@ -178,13 +183,6 @@
     .band-green .final-cta h2 { color: var(--cream); }
     .band-green .final-cta p { color: rgba(241, 239, 234, 0.75); }
     .band-green .accent-cream { color: var(--gold); font-style: italic; }
-    .cta-on-green {
-      background: var(--gold);
-      color: var(--dark);
-    }
-    .cta-on-green:hover {
-      background: #b89232;
-    }
 
     /* ========== HERO ========== */
     .hero {
@@ -225,6 +223,21 @@
       background: #244a3e;
       transform: translateY(-1px);
     }
+    /* CTA variants — must come after .cta-primary to override */
+    .cta-on-green {
+      background: var(--gold);
+      color: var(--dark);
+    }
+    .cta-on-green:hover {
+      background: #b89232;
+    }
+    .cta-on-dark {
+      background: var(--gold);
+      color: var(--dark);
+    }
+    .cta-on-dark:hover {
+      background: #b89232;
+    }
     .hero-phone {
       display: flex;
       justify-content: center;
@@ -264,6 +277,66 @@
         background: linear-gradient(to bottom, rgba(241,239,234,0) 0%, var(--bg) 100%);
         pointer-events: none;
       }
+    }
+
+    /* ========== Section CTA (mid-page repeat button) ========== */
+    .sect-cta {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    /* ========== Calculators ========== */
+    .calc-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .calc-card {
+      background: var(--dark);
+      color: #fff;
+      border-radius: 24px;
+      padding: 36px 32px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .calc-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .calc-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      margin: 0 0 10px;
+      color: #fff;
+    }
+    .calc-desc {
+      font-size: 14px;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.65);
+      margin: 0 0 24px;
+      max-width: 280px;
+    }
+    .calc-phone { margin-top: auto; }
+    .calc-phone img {
+      width: 100%;
+      max-width: 240px;
+      height: auto;
+      margin-bottom: -8%;
+    }
+    @media (max-width: 760px) {
+      .calc-row { grid-template-columns: 1fr; }
+      .calc-phone img { max-width: 200px; }
     }
 
     /* ========== Section heading ========== */
@@ -563,7 +636,7 @@
         <div class="hero-copy">
           <h1>Your roadmap to your <span class="accent">first home.</span></h1>
           <p>A free app and a real coach, guiding first-time buyers from rent to keys.</p>
-          <a class="cta-primary" href="https://app.thefuturehomeownerplan.com/" data-track="start_my_plan" data-location="hero">Get started</a>
+          <a class="cta-primary" href="https://app.thefuturehomeownerplan.com/" data-track="start_my_plan" data-location="hero">Start my plan</a>
         </div>
         <div class="hero-phone">
           <img src="phone_home.png" alt="The Future Homeowner Plan app home screen showing a Future Homeowner Score of 65 out of 100" />
@@ -597,6 +670,9 @@
             <p class="step-desc">Navigate escrow with confidence. Pick up your keys.</p>
           </div>
         </div>
+        <div class="sect-cta">
+          <a class="cta-primary cta-on-dark" href="https://app.thefuturehomeownerplan.com/" data-track="start_my_plan" data-location="phases">Start my plan</a>
+        </div>
       </section>
     </div>
   </div>
@@ -629,12 +705,47 @@
 
       <div class="feature-row">
         <div class="feature-copy">
-          <div class="feature-eyebrow">Talk to your coach</div>
-          <h3 class="feature-title">A licensed Realtor. One tap.</h3>
-          <p class="feature-desc">Text or call a real person through the app, anytime. AI guide Clarity is here too, 24/7.</p>
+          <div class="feature-eyebrow">Help, your way</div>
+          <h3 class="feature-title">A real person. Or AI. Either way, instant.</h3>
+          <p class="feature-desc">Text or call your licensed Realtor through the app. Or ask Clarity, our AI guide, anything, 24/7.</p>
         </div>
         <div class="feature-phone">
-          <img src="phone_chat_ralph.png" alt="Chat screen to message or call your home buying coach" />
+          <img src="phone_chat_ralph.png" alt="Chat screen to message or call your home buying coach, plus AI guide Clarity" />
+        </div>
+      </div>
+    </section>
+
+    <section class="page">
+      <div class="sect-cta">
+        <a class="cta-primary" href="https://app.thefuturehomeownerplan.com/" data-track="start_my_plan" data-location="features">Start my plan</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- ========== CALCULATORS (cream band) ========== -->
+  <div class="wrap">
+    <section class="page">
+      <div class="sect-head">
+        <div class="sect-eyebrow">See your numbers</div>
+        <h2 class="sect-title">Know what you can afford.</h2>
+        <p class="sect-sub">Built-in calculators do the math for you, before you fall in love with a home.</p>
+      </div>
+      <div class="calc-row">
+        <div class="calc-card">
+          <div class="calc-eyebrow">Mortgage calculator</div>
+          <h3 class="calc-title">Your monthly payment.</h3>
+          <p class="calc-desc">Plug in a home price. See principal, interest, taxes, and insurance.</p>
+          <div class="calc-phone">
+            <img src="phone_mortgage_calculator.png" alt="Mortgage calculator showing $5,601 per month based on a $750,000 home" />
+          </div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-eyebrow">DTI calculator</div>
+          <h3 class="calc-title">Are you lender-ready?</h3>
+          <p class="calc-desc">Know your debt-to-income ratio before lenders do, with front-end and back-end targets.</p>
+          <div class="calc-phone">
+            <img src="phone_dti_calculator.png" alt="Debt-to-income calculator showing a 32.8% back-end ratio with green status" />
+          </div>
         </div>
       </div>
     </section>
@@ -702,7 +813,7 @@
         <div class="final-cta">
           <h2>Start your <span class="accent-cream">plan.</span></h2>
           <p>Free. About 3 minutes.</p>
-          <a class="cta-primary cta-on-green" href="https://app.thefuturehomeownerplan.com/" data-track="start_my_plan" data-location="final_cta">Get started</a>
+          <a class="cta-primary cta-on-green" href="https://app.thefuturehomeownerplan.com/" data-track="start_my_plan" data-location="final_cta">Start my plan</a>
         </div>
       </section>
     </div>
