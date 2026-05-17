@@ -407,6 +407,19 @@
     }
 
     /* ========== Webinar promo (green band) ========== */
+    .webinar-section-head {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .webinar-section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      color: var(--cream);
+      margin: 0;
+    }
     .webinar-promo {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -431,7 +444,7 @@
       height: auto;
     }
     .webinar-eyebrow {
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 700;
       letter-spacing: 1.4px;
       text-transform: uppercase;
@@ -440,10 +453,10 @@
     }
     .webinar-title {
       font-family: var(--font-serif);
-      font-size: clamp(28px, 3.6vw, 38px);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -0.6px;
+      font-size: clamp(22px, 2.8vw, 28px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.4px;
       color: var(--cream);
       margin: 0 0 24px;
     }
@@ -454,8 +467,8 @@
       margin-bottom: 28px;
     }
     .webinar-guest-photo {
-      width: 88px;
-      height: 88px;
+      width: 96px;
+      height: 96px;
       border-radius: 50%;
       overflow: hidden;
       flex-shrink: 0;
@@ -471,21 +484,22 @@
     .webinar-guest-info { line-height: 1.4; }
     .webinar-guest-name {
       font-family: var(--font-serif);
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 700;
       letter-spacing: -0.3px;
       color: #fff;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
     .webinar-guest-role {
-      font-size: 14px;
+      font-size: 16px;
       color: var(--gold);
       font-weight: 600;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
     .webinar-guest-meta {
-      font-size: 13px;
-      color: rgba(241, 239, 234, 0.7);
+      font-size: 14px;
+      color: rgba(241, 239, 234, 0.75);
+      line-height: 1.5;
     }
     /* Register prompt (replaces button — points to WebinarJam bar) */
     .webinar-register-prompt {
@@ -496,22 +510,22 @@
     }
     .webinar-datetime {
       font-family: var(--font-serif);
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 700;
       color: #fff;
       letter-spacing: -0.3px;
     }
     .webinar-register-text {
-      font-size: 14px;
+      font-size: 17px;
       font-weight: 600;
       color: var(--gold);
       letter-spacing: 0.2px;
     }
     .webinar-arrow {
-      font-size: 24px;
+      font-size: 28px;
       color: var(--gold);
       line-height: 1;
-      margin-top: 2px;
+      margin-top: 4px;
       animation: arrow-bounce 2s ease-in-out infinite;
     }
     @keyframes arrow-bounce {
@@ -888,13 +902,16 @@
   <div class="band band-green">
     <div class="wrap">
       <section class="page">
+        <div class="webinar-section-head">
+          <h2 class="webinar-section-title">Upcoming Webinar</h2>
+        </div>
         <div class="webinar-promo">
           <div class="webinar-promo-graphic">
             <img src="webinar-promo.png" alt="Home Buyer Grants up to $50,000 for first-time buyers in California. Free live webinar 27 May 6:30 PM." />
           </div>
           <div class="webinar-promo-info">
             <div class="webinar-eyebrow">Free live webinar</div>
-            <h2 class="webinar-title">Meet our guest presenter.</h2>
+            <h3 class="webinar-title">Our guest presenter.</h3>
             <div class="webinar-guest">
               <div class="webinar-guest-photo">
                 <img src="roxana-vazquez.jpg" alt="Roxana Vazquez, Home Loan Advisor at Golden 1 Credit Union" />
