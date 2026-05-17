@@ -421,6 +421,40 @@
       font-size: 13px;
       color: rgba(241, 239, 234, 0.7);
     }
+    /* Register prompt (replaces button — points to WebinarJam bar) */
+    .webinar-register-prompt {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .webinar-datetime {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.3px;
+    }
+    .webinar-register-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.2px;
+    }
+    .webinar-arrow {
+      font-size: 24px;
+      color: var(--gold);
+      line-height: 1;
+      margin-top: 2px;
+      animation: arrow-bounce 2s ease-in-out infinite;
+    }
+    @keyframes arrow-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .webinar-arrow { animation: none; }
+    }
     @media (max-width: 760px) {
       .webinar-promo {
         grid-template-columns: 1fr;
@@ -430,6 +464,9 @@
       .webinar-guest {
         flex-direction: column;
         gap: 14px;
+      }
+      .webinar-register-prompt {
+        align-items: center;
       }
     }
 
@@ -745,9 +782,9 @@
     <div class="wrap">
       <section class="page">
         <div class="webinar-promo">
-          <a class="webinar-promo-graphic" href="#top" data-track="register_webinar" data-location="webinar_promo_graphic">
+          <div class="webinar-promo-graphic">
             <img src="webinar-promo.png" alt="Home Buyer Grants up to $50,000 for first-time buyers in California. Free live webinar 27 May 6:30 PM." />
-          </a>
+          </div>
           <div class="webinar-promo-info">
             <div class="webinar-eyebrow">Free live webinar</div>
             <h2 class="webinar-title">Meet our guest presenter.</h2>
@@ -762,7 +799,11 @@
                 <div class="webinar-guest-meta">NMLS # 490627</div>
               </div>
             </div>
-            <a class="cta-primary cta-on-green" href="#top" data-track="register_webinar" data-location="webinar_promo_button">Register for free</a>
+            <div class="webinar-register-prompt">
+              <div class="webinar-datetime">Wed, May 27 · 6:30 PM PT</div>
+              <div class="webinar-register-text">Register below</div>
+              <div class="webinar-arrow" aria-hidden="true">↓</div>
+            </div>
           </div>
         </div>
       </section>
