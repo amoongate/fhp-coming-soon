@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HH4PWH608B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HH4PWH608B', {
+    'linker': {
+      'domains': ['thefuturehomeownerplan.com', 'app.thefuturehomeownerplan.com']
+    }
+  });
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Learn · The Future Homeowner Plan</title>
+  <meta name="description" content="Past webinars and podcasts from Ralph Richardson and guests, on the path from renting to owning." />
+  <meta name="theme-color" content="#f1efea" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <meta property="og:title" content="Learn · The Future Homeowner Plan" />
+  <meta property="og:description" content="Past webinars and podcasts from Ralph Richardson and guests, on the path from renting to owning." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thefuturehomeownerplan.com/learn.html" />
+  <meta property="og:site_name" content="The Future Homeowner Plan" />
+  <meta property="og:image" content="https://thefuturehomeownerplan.com/og-minimal-v2.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Learn · The Future Homeowner Plan" />
+  <meta name="twitter:description" content="Past webinars and podcasts from Ralph Richardson and guests, on the path from renting to owning." />
+  <meta name="twitter:image" content="https://thefuturehomeownerplan.com/og-minimal-v2.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f1efea;
+      --surface: #ffffff;
+      --ink: #0f172a;
+      --muted: #6b7280;
+      --muted-light: #9ca3af;
+      --gold: #c9a54a;
+      --gold-soft: #f5efe3;
+      --green: #2f5f4f;
+      --green-soft: #e9f3ee;
+      --border: #e5e1d7;
+      --dark: #1f2333;
+      --cream: #f1efea;
+
+      --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+      --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ========== Topbar ========== */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(241, 239, 234, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding-top: env(safe-area-inset-top);
+    }
+    .topbar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .topbar-brand svg { width: 32px; height: 32px; display: block; }
+    .topbar-name { font-weight: 700; font-size: 14px; line-height: 1.1; }
+    .topbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .topbar-link {
+      font-size: 13px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .topbar-link:hover { color: var(--green); }
+    .topbar-link.is-active { color: var(--green); }
+    .topbar-signin {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cream);
+      text-decoration: none;
+      background: var(--green);
+      padding: 8px 16px;
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .topbar-signin:hover { background: #244a3e; }
+
+    .topbar-hamburger {
+      display: none;
+      background: transparent;
+      border: 0;
+      padding: 10px;
+      margin: -10px;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 4px;
+      align-items: center;
+      justify-content: center;
+    }
+    .topbar-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 1px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .topbar-hamburger.is-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .topbar-hamburger.is-open span:nth-child(2) { opacity: 0; }
+    .topbar-hamburger.is-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      padding: calc(72px + env(safe-area-inset-top)) 24px 32px;
+      flex-direction: column;
+      gap: 8px;
+      transform: translateY(-100%);
+      transition: transform 0.25s ease;
+      z-index: 40;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu.is-open {
+      display: flex;
+      transform: translateY(0);
+    }
+    .mobile-menu-link {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 14px 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu-cta {
+      margin-top: 12px;
+      background: var(--green);
+      color: var(--cream);
+      text-align: center;
+      text-decoration: none;
+      padding: 14px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      .topbar-nav { display: none; }
+      .topbar-hamburger { display: flex; }
+    }
+    @media (max-width: 540px) {
+      .topbar-name { display: none; }
+    }
+
+    /* ========== Wrap ========== */
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      padding-left: max(24px, env(safe-area-inset-left));
+      padding-right: max(24px, env(safe-area-inset-right));
+    }
+
+    section.page { padding: 56px 0; }
+    section.page.first { padding-top: 32px; }
+
+    /* ========== Bands ========== */
+    .band { width: 100%; }
+    .band-dark {
+      background: var(--dark);
+      color: #fff;
+    }
+    .band-dark .sect-eyebrow { color: var(--gold); }
+    .band-dark .sect-title { color: #fff; }
+    .band-dark .sect-sub { color: rgba(255, 255, 255, 0.7); }
+    .band-dark .accent-gold { color: var(--gold); font-style: italic; }
+
+    .band-green {
+      background: var(--green);
+      color: var(--cream);
+    }
+    .band-green .final-cta h2 { color: var(--cream); }
+    .band-green .final-cta p { color: rgba(241, 239, 234, 0.75); }
+    .band-green .accent-cream { color: var(--gold); font-style: italic; }
+
+    /* ========== Page header (top of page hero) ========== */
+    .page-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 0 16px;
+    }
+    .page-header .sect-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .page-header h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 5.5vw, 64px);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -1.5px;
+      margin: 0 0 16px;
+    }
+    .accent { color: var(--green); font-style: italic; }
+    .page-header p {
+      font-size: clamp(16px, 1.5vw, 19px);
+      line-height: 1.5;
+      color: rgba(15,23,42,0.7);
+      margin: 0 auto;
+      max-width: 540px;
+    }
+
+    /* ========== Section heading (reused style) ========== */
+    .sect-head {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 40px;
+    }
+    .sect-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .sect-title {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.8px;
+      margin: 0;
+    }
+    .sect-sub {
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--muted);
+      margin: 12px auto 0;
+      max-width: 480px;
+    }
+
+    /* ========== Media grid (webinars and podcasts) ========== */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    @media (max-width: 720px) {
+      .media-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    .media-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .media-card-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+    }
+    .media-card-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    /* Placeholder visuals when no real content yet */
+    .media-card-frame.placeholder {
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.4);
+      font-family: var(--font-serif);
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .media-card-frame.placeholder::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(201, 165, 74, 0.12), transparent 60%),
+        radial-gradient(circle at 70% 70%, rgba(47, 95, 79, 0.15), transparent 60%);
+      pointer-events: none;
+    }
+    .media-card-frame.placeholder .pl-label {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .media-card-frame.placeholder .pl-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      background: rgba(201, 165, 74, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+    }
+    .media-card-frame.placeholder .pl-text {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      color: rgba(241, 239, 234, 0.5);
+    }
+
+    .media-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .media-meta-dot { color: var(--muted-light); }
+    .media-meta-date { color: var(--muted-light); font-weight: 500; letter-spacing: 0.2px; text-transform: none; }
+    .media-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      line-height: 1.25;
+      margin: 0;
+    }
+    .media-desc {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--muted);
+      margin: 0;
+    }
+    .media-host {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .media-host-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    /* ========== Final CTA (same style as index) ========== */
+    .final-cta {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .final-cta h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5.5vw, 56px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.0;
+      margin: 0 0 16px;
+    }
+    .final-cta p {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0 0 32px;
+    }
+    .cta-primary {
+      display: inline-block;
+      background: var(--green);
+      color: var(--cream);
+      padding: 18px 38px;
+      border-radius: 999px;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .cta-primary:hover {
+      background: #244a3e;
+      transform: translateY(-1px);
+    }
+    .cta-on-green {
+      background: var(--gold);
+      color: var(--dark);
+    }
+    .cta-on-green:hover { background: #b89232; }
+
+    /* ========== Footer ========== */
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted-light);
+      line-height: 1.7;
+      padding: 32px 20px 20px;
+      padding-bottom: calc(20px + env(safe-area-inset-bottom));
+      margin-top: 24px;
+    }
+    .footer-tiny {
+      font-size: 11px;
+      margin-top: 8px;
+      color: var(--muted-light);
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 420px) {
+      .wrap { padding: 0 20px; }
+      section.page { padding: 40px 0; }
+      .page-header { padding: 24px 0 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="topbar-brand" href="/">
+        <div>
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="logo">
+            <rect width="64" height="64" rx="14" fill="#2f5f4f"/>
+            <path d="M14 30 L32 14 L50 30 L46 30 L46 48 L36 48 L36 38 L28 38 L28 48 L18 48 L18 30 Z" fill="#f1efea"/>
+            <rect x="30" y="30" width="4" height="6" fill="#c9a54a"/>
+          </svg>
+        </div>
+        <div class="topbar-name">The Future Homeowner Plan</div>
+      </a>
+      <nav class="topbar-nav">
+        <a class="topbar-link" href="/stories.html">Stories</a>
+        <a class="topbar-link is-active" href="/learn.html">Learn</a>
+        <a class="topbar-signin" href="https://app.thefuturehomeownerplan.com/" data-track="sign_in" data-location="topbar">Sign in</a>
+      </nav>
+      <button class="topbar-hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a class="mobile-menu-link" href="/stories.html">Stories</a>
+    <a class="mobile-menu-link" href="/learn.html">Learn</a>
+    <a class="mobile-menu-cta" href="https://app.thefuturehomeownerplan.com/" data-track="sign_in" data-location="mobile_menu">Sign in</a>
+  </div>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('hamburgerBtn');
+      var menu = document.getElementById('mobileMenu');
+      if (!btn || !menu) return;
+      function toggle() {
+        var open = menu.classList.toggle('is-open');
+        btn.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', String(open));
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        menu.setAttribute('aria-hidden', String(!open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+      btn.addEventListener('click', toggle);
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { if (menu.classList.contains('is-open')) toggle(); });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && menu.classList.contains('is-open')) toggle();
+      });
+    })();
+  </script>
+
+  <div class="wrap">
+
+    <!-- ========== PAGE HEADER ========== -->
+    <section class="page first">
+      <div class="page-header">
+        <div class="sect-eyebrow">Free for buyers</div>
+        <h1>Learn the <span class="accent">path home.</span></h1>
+        <p>Free webinars and podcasts on credit, down payments, mortgages, and everything in between.</p>
+      </div>
+    </section>
+
+    <!-- ========== WEBINARS ========== -->
+    <section class="page">
+      <div class="sect-head">
+        <div class="sect-eyebrow">Past webinars</div>
+        <h2 class="sect-title">Watch on your time.</h2>
+        <p class="sect-sub">One-hour sessions with Ralph and special guests, covering the most-asked questions from first-time buyers.</p>
+      </div>
+
+      <div class="media-grid">
+
+        <!-- Placeholder webinar #1 -->
+        <div class="media-card">
+          <div class="media-card-frame placeholder">
+            <div class="pl-label">
+              <div class="pl-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="6 4 20 12 6 20 6 4" fill="currentColor" stroke="none"/>
+                </svg>
+              </div>
+              <div class="pl-text">Coming soon</div>
+            </div>
+          </div>
+          <div>
+            <div class="media-meta">
+              Webinar
+              <span class="media-meta-dot">·</span>
+              <span class="media-meta-date">Coming soon</span>
+            </div>
+            <h3 class="media-title">Down Payment Assistance for first-time buyers.</h3>
+            <p class="media-desc">CalHFA, the WISH Grant, and Middle-Income programs. How they stack, who qualifies, and what to do now.</p>
+            <div class="media-host">
+              <div class="media-host-avatar">RR</div>
+              Ralph Richardson with Roxana Vazquez, Golden 1 Credit Union
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder webinar #2 -->
+        <div class="media-card">
+          <div class="media-card-frame placeholder">
+            <div class="pl-label">
+              <div class="pl-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="6 4 20 12 6 20 6 4" fill="currentColor" stroke="none"/>
+                </svg>
+              </div>
+              <div class="pl-text">Coming soon</div>
+            </div>
+          </div>
+          <div>
+            <div class="media-meta">
+              Webinar
+              <span class="media-meta-dot">·</span>
+              <span class="media-meta-date">Coming soon</span>
+            </div>
+            <h3 class="media-title">Credit scores, demystified.</h3>
+            <p class="media-desc">What lenders actually look at, what hurts your score the most, and how to bump it 30 points in 90 days.</p>
+            <div class="media-host">
+              <div class="media-host-avatar">RR</div>
+              Hosted by Ralph Richardson
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder webinar #3 -->
+        <div class="media-card">
+          <div class="media-card-frame placeholder">
+            <div class="pl-label">
+              <div class="pl-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="6 4 20 12 6 20 6 4" fill="currentColor" stroke="none"/>
+                </svg>
+              </div>
+              <div class="pl-text">Coming soon</div>
+            </div>
+          </div>
+          <div>
+            <div class="media-meta">
+              Webinar
+              <span class="media-meta-dot">·</span>
+              <span class="media-meta-date">Coming soon</span>
+            </div>
+            <h3 class="media-title">From pre-approval to keys.</h3>
+            <p class="media-desc">A walkthrough of every step between getting pre-approved and closing day. Inspections, appraisals, contingencies, and more.</p>
+            <div class="media-host">
+              <div class="media-host-avatar">RR</div>
+              Hosted by Ralph Richardson
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder webinar #4 -->
+        <div class="media-card">
+          <div class="media-card-frame placeholder">
+            <div class="pl-label">
+              <div class="pl-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="6 4 20 12 6 20 6 4" fill="currentColor" stroke="none"/>
+                </svg>
+              </div>
+              <div class="pl-text">Coming soon</div>
+            </div>
+          </div>
+          <div>
+            <div class="media-meta">
+              Webinar
+              <span class="media-meta-dot">·</span>
+              <span class="media-meta-date">Coming soon</span>
+            </div>
+            <h3 class="media-title">FHA vs Conventional vs VA.</h3>
+            <p class="media-desc">Which loan type fits your situation, what each one costs, and the trade-offs most lenders won't explain.</p>
+            <div class="media-host">
+              <div class="media-host-avatar">RR</div>
+              Hosted by Ralph Richardson
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== PODCAST ========== -->
+    <section class="page">
+      <div class="sect-head">
+        <div class="sect-eyebrow">Podcast</div>
+        <h2 class="sect-title">Listen on the go.</h2>
+        <p class="sect-sub">Short episodes for renters on the road to ownership. Real stories, real numbers, real next steps.</p>
+      </div>
+
+      <div class="media-grid">
+
+        <!-- Placeholder podcast #1 -->
+        <div class="media-card">
+          <div class="media-card-frame placeholder">
+            <div class="pl-label">
+              <div class="pl-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="2" width="6" height="13" rx="3" fill="currentColor" stroke="none"/>
+                  <path d="M19 11a7 7 0 0 1-14 0"/>
+                  <line x1="12" y1="18" x2="12" y2="22"/>
+                </svg>
+              </div>
+              <div class="pl-text">Coming soon</div>
+            </div>
+          </div>
+          <div>
+            <div class="media-meta">
+              Episode 01
+              <span class="media-meta-dot">·</span>
+              <span class="media-meta-date">Coming soon</span>
+            </div>
+            <h3 class="media-title">"I thought I couldn't afford it."</h3>
+            <p class="media-desc">A real buyer shares the moment she realized 20% down was a myth, and what changed once she saw the real numbers.</p>
+            <div class="media-host">
+              <div class="media-host-avatar">RR</div>
+              Hosted by Ralph Richardson
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder podcast #2 -->
+        <div class="media-card">
+          <div class="media-card-frame placeholder">
+            <div class="pl-label">
+              <div class="pl-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="2" width="6" height="13" rx="3" fill="currentColor" stroke="none"/>
+                  <path d="M19 11a7 7 0 0 1-14 0"/>
+                  <line x1="12" y1="18" x2="12" y2="22"/>
+                </svg>
+              </div>
+              <div class="pl-text">Coming soon</div>
+            </div>
+          </div>
+          <div>
+            <div class="media-meta">
+              Episode 02
+              <span class="media-meta-dot">·</span>
+              <span class="media-meta-date">Coming soon</span>
+            </div>
+            <h3 class="media-title">The credit repair shortcut nobody talks about.</h3>
+            <p class="media-desc">A 15-minute walkthrough of the one credit move that bumps most first-time buyers above the 680 threshold.</p>
+            <div class="media-host">
+              <div class="media-host-avatar">RR</div>
+              Hosted by Ralph Richardson
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== STAY UPDATED (just a soft note, no form) ========== -->
+    <section class="page">
+      <div class="page-header">
+        <div class="sect-eyebrow">More on the way</div>
+        <h2 class="sect-title" style="font-size: clamp(24px, 3.5vw, 32px);">New webinars and episodes monthly.</h2>
+        <p style="margin-top: 12px;">Sign up to the app and you'll get notified when each one drops.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ========== FINAL CTA (green band) ========== -->
+  <div class="band band-green">
+    <div class="wrap">
+      <section class="page">
+        <div class="final-cta">
+          <h2>Start your <span class="accent-cream">plan.</span></h2>
+          <p>Free. About 3 minutes.</p>
+          <a class="cta-primary cta-on-green" href="https://app.thefuturehomeownerplan.com/" data-track="start_my_plan" data-location="learn_final_cta">Start my plan</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <footer class="footer">
+    © 2026 Atlantic Moongate Inc. · Ralph Richardson<br />
+    Keller Williams Corona · DRE# 02054110
+    <div class="footer-tiny">The Future Homeowner Plan is an educational tool only, not financial, legal, or mortgage advice. Consult a licensed professional for guidance specific to your situation.</div>
+  </footer>
+
+  <script>
+    (function () {
+      document.addEventListener('click', function (e) {
+        var link = e.target.closest('a[data-track]');
+        if (!link) return;
+
+        var eventName = link.getAttribute('data-track');
+        var location = link.getAttribute('data-location') || 'unknown';
+        var page = (window.location.pathname.split('/').pop() || 'index').replace('.html', '') || 'index';
+
+        try {
+          var url = new URL(link.href);
+          if (url.hostname.indexOf('app.thefuturehomeownerplan.com') !== -1) {
+            url.searchParams.set('utm_source', 'marketing_site');
+            url.searchParams.set('utm_medium', 'cta_button');
+            url.searchParams.set('utm_campaign', eventName);
+            url.searchParams.set('utm_content', page + '_' + location);
+            link.href = url.toString();
+          }
+        } catch (err) { /* ignore */ }
+
+        if (typeof gtag === 'function') {
+          gtag('event', eventName, {
+            'location': location,
+            'page': page,
+            'link_url': link.href
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
