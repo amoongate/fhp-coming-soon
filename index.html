@@ -71,6 +71,7 @@
 
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       background: var(--bg);
       color: var(--ink);
@@ -337,6 +338,99 @@
     @media (max-width: 760px) {
       .calc-row { grid-template-columns: 1fr; }
       .calc-phone img { max-width: 200px; }
+    }
+
+    /* ========== Webinar promo (green band) ========== */
+    .webinar-promo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .webinar-promo-graphic {
+      display: block;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease;
+    }
+    .webinar-promo-graphic:hover {
+      transform: translateY(-2px);
+    }
+    .webinar-promo-graphic img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .webinar-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .webinar-title {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3.6vw, 38px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.6px;
+      color: var(--cream);
+      margin: 0 0 24px;
+    }
+    .webinar-guest {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .webinar-guest-photo {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.08);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+    }
+    .webinar-guest-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+    .webinar-guest-info { line-height: 1.4; }
+    .webinar-guest-name {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .webinar-guest-role {
+      font-size: 14px;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .webinar-guest-meta {
+      font-size: 13px;
+      color: rgba(241, 239, 234, 0.7);
+    }
+    @media (max-width: 760px) {
+      .webinar-promo {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+      .webinar-guest {
+        flex-direction: column;
+        gap: 14px;
+      }
     }
 
     /* ========== Section heading ========== */
@@ -610,7 +704,7 @@
 </head>
 <body>
 
-  <header class="topbar">
+  <header class="topbar" id="top">
     <div class="topbar-inner">
       <a class="topbar-brand" href="/">
         <div>
@@ -644,6 +738,35 @@
         </div>
       </div>
     </section>
+  </div>
+
+  <!-- ========== WEBINAR PROMO (green band) ========== -->
+  <div class="band band-green">
+    <div class="wrap">
+      <section class="page">
+        <div class="webinar-promo">
+          <a class="webinar-promo-graphic" href="#top" data-track="register_webinar" data-location="webinar_promo_graphic">
+            <img src="webinar-promo.png" alt="Home Buyer Grants up to $50,000 for first-time buyers in California. Free live webinar 27 May 6:30 PM." />
+          </a>
+          <div class="webinar-promo-info">
+            <div class="webinar-eyebrow">Free live webinar</div>
+            <h2 class="webinar-title">Meet our guest presenter.</h2>
+            <div class="webinar-guest">
+              <div class="webinar-guest-photo">
+                <img src="roxana-vazquez.jpg" alt="Roxana Vazquez, Home Loan Advisor at Golden 1 Credit Union" />
+              </div>
+              <div class="webinar-guest-info">
+                <div class="webinar-guest-name">Roxana Vazquez</div>
+                <div class="webinar-guest-role">Home Loan Advisor</div>
+                <div class="webinar-guest-meta">Golden 1 Credit Union · Home Loans</div>
+                <div class="webinar-guest-meta">NMLS # 490627</div>
+              </div>
+            </div>
+            <a class="cta-primary cta-on-green" href="#top" data-track="register_webinar" data-location="webinar_promo_button">Register for free</a>
+          </div>
+        </div>
+      </section>
+    </div>
   </div>
 
   <!-- ========== HOW IT WORKS (3-up, dark band) ========== -->
