@@ -863,5 +863,38 @@
       });
     })();
   </script>
+
+  <!-- WebinarJam registration bar -->
+  <script src="https://event.webinarjam.com/register/z054rmh7/embed-bar?buttonText=Register&buttonBgColor=%23000000&buttonBgOpacity=0.5&barBgColor=%2329b6f6&barBgOpacity=0.95&formTemplate=2&formColor=1"></script>
+
+  <!-- Offset sticky topbar to sit below the WebinarJam bar -->
+  <script>
+    (function () {
+      function adjustTopbarOffset() {
+        var topbar = document.querySelector('.topbar');
+        if (!topbar) return;
+        var candidates = document.querySelectorAll('body > div, body > iframe');
+        var wjBarHeight = 0;
+        for (var i = 0; i < candidates.length; i++) {
+          var el = candidates[i];
+          var style = window.getComputedStyle(el);
+          if (style.position === 'fixed' && parseInt(style.top, 10) === 0 && el !== topbar) {
+            var rect = el.getBoundingClientRect();
+            if (rect.top <= 5 && rect.width > window.innerWidth * 0.5 && rect.height > 20 && rect.height < 200) {
+              wjBarHeight = Math.max(wjBarHeight, rect.height);
+            }
+          }
+        }
+        topbar.style.top = wjBarHeight + 'px';
+      }
+      window.addEventListener('load', function () {
+        adjustTopbarOffset();
+        setTimeout(adjustTopbarOffset, 500);
+        setTimeout(adjustTopbarOffset, 1500);
+        setTimeout(adjustTopbarOffset, 3000);
+      });
+      window.addEventListener('resize', adjustTopbarOffset);
+    })();
+  </script>
 </body>
 </html>

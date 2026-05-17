@@ -518,6 +518,13 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(6px); }
     }
+    @keyframes arrow-bounce-up {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .webinar-arrow-up {
+      animation: arrow-bounce-up 2s ease-in-out infinite;
+    }
     @media (prefers-reduced-motion: reduce) {
       .webinar-arrow { animation: none; }
     }
@@ -901,8 +908,8 @@
             </div>
             <div class="webinar-register-prompt">
               <div class="webinar-datetime">Wed, May 27 · 6:30 PM PT</div>
-              <div class="webinar-register-text">Register below</div>
-              <div class="webinar-arrow" aria-hidden="true">↓</div>
+              <div class="webinar-register-text">Register above</div>
+              <div class="webinar-arrow webinar-arrow-up" aria-hidden="true">↑</div>
             </div>
           </div>
         </div>
