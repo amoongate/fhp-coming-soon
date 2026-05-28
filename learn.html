@@ -198,7 +198,9 @@
       .topbar-nav { display: none; }
       .topbar-hamburger { display: flex; }
     }
-
+    @media (max-width: 540px) {
+      .topbar-name { display: none; }
+    }
 
     /* ========== Wrap ========== */
     .wrap {
@@ -689,46 +691,10 @@
     })();
   </script>
 
-  <!-- ========== WEBINAR PROMO HERO (green band) ========== -->
-  <div class="band band-green">
-    <div class="wrap">
-      <section class="page first">
-        <div class="webinar-section-head">
-          <h1 class="webinar-section-title">Upcoming Webinar</h1>
-        </div>
-        <div class="webinar-promo">
-          <div class="webinar-promo-graphic">
-            <img src="webinar-promo.png" alt="Home Buyer Grants up to $50,000 for first-time buyers in California. Free live webinar 27 May 6:30 PM." />
-          </div>
-          <div class="webinar-promo-info">
-            <div class="webinar-eyebrow">Free live webinar</div>
-            <h2 class="webinar-title">Our guest presenter.</h2>
-            <div class="webinar-guest">
-              <div class="webinar-guest-photo">
-                <img src="roxana-vazquez.jpg" alt="Roxana Vazquez, Home Loan Advisor at Golden 1 Credit Union" />
-              </div>
-              <div class="webinar-guest-info">
-                <div class="webinar-guest-name">Roxana Vazquez</div>
-                <div class="webinar-guest-role">Home Loan Advisor</div>
-                <div class="webinar-guest-meta">Golden 1 Credit Union · Home Loans</div>
-                <div class="webinar-guest-meta">NMLS # 490627</div>
-              </div>
-            </div>
-            <div class="webinar-register-prompt">
-              <div class="webinar-datetime">Wed, May 27 · 6:30 PM PT</div>
-              <div class="webinar-register-text">Register below</div>
-              <div class="webinar-arrow" aria-hidden="true">↓</div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </div>
-
   <div class="wrap">
 
     <!-- ========== WEBINARS ========== -->
-    <section class="page">
+    <section class="page first">
       <div class="sect-head">
         <div class="sect-eyebrow">Past webinars</div>
         <h2 class="sect-title">Watch on your time.</h2>
@@ -737,23 +703,22 @@
 
       <div class="media-grid">
 
-        <!-- Placeholder webinar #1 -->
+        <!-- Webinar #1: Down Payment Assistance (recorded) -->
         <div class="media-card">
-          <div class="media-card-frame placeholder">
-            <div class="pl-label">
-              <div class="pl-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polygon points="6 4 20 12 6 20 6 4" fill="currentColor" stroke="none"/>
-                </svg>
-              </div>
-              <div class="pl-text">Coming soon</div>
-            </div>
+          <div class="media-card-frame">
+            <iframe
+              src="https://www.youtube.com/embed/X-7sgdKmsXg"
+              title="Down Payment Assistance for first-time buyers"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"></iframe>
           </div>
           <div>
             <div class="media-meta">
               Webinar
               <span class="media-meta-dot">·</span>
-              <span class="media-meta-date">Coming soon</span>
+              <span class="media-meta-date">May 2026</span>
             </div>
             <h3 class="media-title">Down Payment Assistance for first-time buyers.</h3>
             <p class="media-desc">CalHFA, the WISH Grant, and Middle-Income programs. How they stack, who qualifies, and what to do now.</p>
