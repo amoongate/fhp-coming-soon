@@ -442,6 +442,10 @@
     }
 
     /* ========== Media grid (webinars and podcasts) ========== */
+    .media-featured {
+      max-width: 720px;
+      margin: 0 auto 48px;
+    }
     .media-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -451,6 +455,7 @@
     }
     @media (max-width: 720px) {
       .media-grid { grid-template-columns: 1fr; gap: 24px; }
+      .media-featured { margin-bottom: 32px; }
     }
 
     .media-card {
@@ -701,9 +706,8 @@
         <p class="sect-sub">Free Webinars with Ralph and special guests, covering the most-asked questions from first-time buyers.</p>
       </div>
 
-      <div class="media-grid">
-
-        <!-- Webinar #1: Down Payment Assistance (recorded) -->
+      <!-- Featured video, full width -->
+      <div class="media-featured">
         <div class="media-card">
           <div class="media-card-frame">
             <iframe
@@ -728,6 +732,9 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="media-grid">
 
         <!-- Placeholder webinar #2 -->
         <div class="media-card">
@@ -783,104 +790,6 @@
           </div>
         </div>
 
-        <!-- Placeholder webinar #4 -->
-        <div class="media-card">
-          <div class="media-card-frame placeholder">
-            <div class="pl-label">
-              <div class="pl-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polygon points="6 4 20 12 6 20 6 4" fill="currentColor" stroke="none"/>
-                </svg>
-              </div>
-              <div class="pl-text">Coming soon</div>
-            </div>
-          </div>
-          <div>
-            <div class="media-meta">
-              Webinar
-              <span class="media-meta-dot">·</span>
-              <span class="media-meta-date">Coming soon</span>
-            </div>
-            <h3 class="media-title">FHA vs Conventional vs VA.</h3>
-            <p class="media-desc">Which loan type fits your situation, what each one costs, and the trade-offs most lenders won't explain.</p>
-            <div class="media-host">
-              <div class="media-host-avatar">RR</div>
-              Hosted by Ralph Richardson
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ========== PODCAST ========== -->
-    <section class="page">
-      <div class="sect-head">
-        <div class="sect-eyebrow">Podcast</div>
-        <h2 class="sect-title">Listen on the go.</h2>
-        <p class="sect-sub">Short episodes for renters on the road to ownership. Real stories, real numbers, real next steps.</p>
-      </div>
-
-      <div class="media-grid">
-
-        <!-- Placeholder podcast #1 -->
-        <div class="media-card">
-          <div class="media-card-frame placeholder">
-            <div class="pl-label">
-              <div class="pl-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="9" y="2" width="6" height="13" rx="3" fill="currentColor" stroke="none"/>
-                  <path d="M19 11a7 7 0 0 1-14 0"/>
-                  <line x1="12" y1="18" x2="12" y2="22"/>
-                </svg>
-              </div>
-              <div class="pl-text">Coming soon</div>
-            </div>
-          </div>
-          <div>
-            <div class="media-meta">
-              Episode 01
-              <span class="media-meta-dot">·</span>
-              <span class="media-meta-date">Coming soon</span>
-            </div>
-            <h3 class="media-title">"I thought I couldn't afford it."</h3>
-            <p class="media-desc">A real buyer shares the moment she realized 20% down was a myth, and what changed once she saw the real numbers.</p>
-            <div class="media-host">
-              <div class="media-host-avatar">RR</div>
-              Hosted by Ralph Richardson
-            </div>
-          </div>
-        </div>
-
-        <!-- Placeholder podcast #2 -->
-        <div class="media-card">
-          <div class="media-card-frame placeholder">
-            <div class="pl-label">
-              <div class="pl-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="9" y="2" width="6" height="13" rx="3" fill="currentColor" stroke="none"/>
-                  <path d="M19 11a7 7 0 0 1-14 0"/>
-                  <line x1="12" y1="18" x2="12" y2="22"/>
-                </svg>
-              </div>
-              <div class="pl-text">Coming soon</div>
-            </div>
-          </div>
-          <div>
-            <div class="media-meta">
-              Episode 02
-              <span class="media-meta-dot">·</span>
-              <span class="media-meta-date">Coming soon</span>
-            </div>
-            <h3 class="media-title">The credit repair shortcut nobody talks about.</h3>
-            <p class="media-desc">A 15-minute walkthrough of the one credit move that bumps most first-time buyers above the 680 threshold.</p>
-            <div class="media-host">
-              <div class="media-host-avatar">RR</div>
-              Hosted by Ralph Richardson
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -888,7 +797,7 @@
     <section class="page">
       <div class="page-header">
         <div class="sect-eyebrow">More on the way</div>
-        <h2 class="sect-title" style="font-size: clamp(24px, 3.5vw, 32px);">New webinars and episodes monthly.</h2>
+        <h2 class="sect-title" style="font-size: clamp(24px, 3.5vw, 32px);">New webinars monthly.</h2>
         <p style="margin-top: 12px;">Sign up to the app and you'll get notified when each one drops.</p>
       </div>
     </section>
@@ -943,39 +852,6 @@
           });
         }
       });
-    })();
-  </script>
-
-  <!-- WebinarJam registration bar -->
-  <script src="https://event.webinarjam.com/register/z054rmh7/embed-bar?buttonText=Register&buttonBgColor=%23000000&buttonBgOpacity=0.5&barBgColor=%2329b6f6&barBgOpacity=0.95&formTemplate=2&formColor=1"></script>
-
-  <!-- Offset sticky topbar to sit below the WebinarJam bar -->
-  <script>
-    (function () {
-      function adjustTopbarOffset() {
-        var topbar = document.querySelector('.topbar');
-        if (!topbar) return;
-        var candidates = document.querySelectorAll('body > div, body > iframe');
-        var wjBarHeight = 0;
-        for (var i = 0; i < candidates.length; i++) {
-          var el = candidates[i];
-          var style = window.getComputedStyle(el);
-          if (style.position === 'fixed' && parseInt(style.top, 10) === 0 && el !== topbar) {
-            var rect = el.getBoundingClientRect();
-            if (rect.top <= 5 && rect.width > window.innerWidth * 0.5 && rect.height > 20 && rect.height < 200) {
-              wjBarHeight = Math.max(wjBarHeight, rect.height);
-            }
-          }
-        }
-        topbar.style.top = wjBarHeight + 'px';
-      }
-      window.addEventListener('load', function () {
-        adjustTopbarOffset();
-        setTimeout(adjustTopbarOffset, 500);
-        setTimeout(adjustTopbarOffset, 1500);
-        setTimeout(adjustTopbarOffset, 3000);
-      });
-      window.addEventListener('resize', adjustTopbarOffset);
     })();
   </script>
 </body>
